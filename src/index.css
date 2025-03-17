@@ -5,43 +5,43 @@
 
 @layer base {
   :root {
-    --background: 210 38% 98%;
-    --foreground: 210 40% 2%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 40% 2%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 2%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 210 40% 2%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 210 30% 40%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 210 40% 2%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 30% 90%;
-    --input: 210 30% 90%;
-    --ring: 210 40% 50%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 224 76% 48%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 17%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -78,18 +78,18 @@ body {
 
 /* Glass effect */
 .glass {
-  @apply bg-white/10 backdrop-blur-md border border-white/20;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .glass-card {
-  @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-sm;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  @apply bg-white/10 backdrop-blur-md border border-white/10 shadow-sm;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .glass-card-dark {
-  @apply bg-black/5 backdrop-blur-md border border-black/10 shadow-sm;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  @apply bg-black/40 backdrop-blur-md border border-white/10 shadow-sm;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Text animation classes */
@@ -108,7 +108,7 @@ body {
 
 .timeline-dot {
   @apply absolute left-5 top-1 w-2.5 h-2.5 rounded-full bg-primary transform -translate-x-[5px];
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
 }
 
 .section {
@@ -130,8 +130,8 @@ body {
 }
 
 .btn-outline {
-  @apply inline-flex items-center justify-center rounded-md border border-input px-5 py-2.5 font-medium text-foreground shadow-sm
-  transition-all duration-200 hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  @apply inline-flex items-center justify-center rounded-md border border-primary/30 px-5 py-2.5 font-medium text-primary shadow-sm
+  transition-all duration-200 hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
 }
 
 .marquee {
@@ -146,4 +146,37 @@ body {
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+/* Floating particles animation */
+.particles-container {
+  @apply fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden;
+}
+
+.particle {
+  @apply absolute rounded-full;
+  animation: float-particle 20s linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* Glowing text effect */
+.glow-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600;
+  filter: drop-shadow(0 0 0.75rem rgba(59, 130, 246, 0.5));
 }
