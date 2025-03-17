@@ -1,6 +1,7 @@
 
 import { Github, Heart, Linkedin, Mail, Twitter } from 'lucide-react';
 import { Button } from './ui/button';
+import GlowingCircle from './ui/GlowingCircle';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -11,8 +12,10 @@ const Footer = () => {
   };
   
   return (
-    <footer className="py-20 bg-background border-t border-border">
-      <div className="container max-w-6xl mx-auto px-6 md:px-8">
+    <footer className="bg-background border-t border-border relative">
+      <GlowingCircle />
+      
+      <div className="container max-w-6xl mx-auto px-6 md:px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           <div>
             <h3 className="text-xl font-bold mb-4">Hisham</h3>
