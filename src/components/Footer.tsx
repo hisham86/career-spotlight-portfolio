@@ -1,5 +1,6 @@
 
-import { Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -10,55 +11,81 @@ const Footer = () => {
   };
   
   return (
-    <footer className="py-12 bg-foreground text-white">
+    <footer className="py-20 bg-background border-t border-border">
       <div className="container max-w-6xl mx-auto px-6 md:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
-              <h3 className="text-2xl font-bold">Hisham</h3>
-              <div className="h-8 w-px bg-white/20 hidden md:block" />
-              <p className="text-white/80">Senior Product Manager</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+          <div>
+            <h3 className="text-xl font-bold mb-4">Hisham</h3>
+            <p className="text-muted-foreground mb-6">
+              Senior Product Manager with a passion for creating innovative products that solve real problems.
+            </p>
+            <div className="flex space-x-3">
+              <a 
+                href="https://linkedin.com/in/hisham86" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground/10 transition-colors"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground/10 transition-colors"
+              >
+                <Github size={18} />
+              </a>
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground/10 transition-colors"
+              >
+                <Twitter size={18} />
+              </a>
             </div>
           </div>
           
-          <div className="flex items-center space-x-4">
-            <a 
-              href="https://linkedin.com/in/hisham86" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-            >
-              <Linkedin size={18} />
-            </a>
+          <div>
+            <h3 className="text-xl font-bold mb-4">Pages</h3>
+            <ul className="space-y-2.5">
+              <li><a href="#home" className="text-muted-foreground hover:text-foreground transition-colors">Home</a></li>
+              <li><a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a></li>
+              <li><a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a></li>
+              <li><a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">Projects</a></li>
+              <li><a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <p className="text-muted-foreground mb-4">
+              Ready to collaborate? Let's get in touch!
+            </p>
             <a 
               href="mailto:hisham@example.com" 
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+              className="inline-flex items-center text-primary hover:underline"
             >
-              <Mail size={18} />
+              <Mail size={18} className="mr-2" />
+              hisham@example.com
             </a>
-            <button 
-              onClick={scrollToTop}
-              className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              aria-label="Scroll to top"
-            >
-              <ArrowUp size={18} />
-            </button>
           </div>
         </div>
         
-        <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-white/60 mb-4 md:mb-0">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border">
+          <p className="text-sm text-muted-foreground mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Hisham. All rights reserved.
           </p>
           
-          <div className="flex space-x-6">
-            <a href="#" className="text-sm text-white/60 hover:text-white transition-colors">
-              Privacy
-            </a>
-            <a href="#" className="text-sm text-white/60 hover:text-white transition-colors">
-              Terms
-            </a>
-          </div>
+          <Button 
+            onClick={scrollToTop}
+            variant="ghost" 
+            size="sm"
+            className="text-muted-foreground hover:text-foreground"
+          >
+            Back to top
+          </Button>
         </div>
       </div>
     </footer>

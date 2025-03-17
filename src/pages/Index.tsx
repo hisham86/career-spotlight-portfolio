@@ -17,11 +17,21 @@ const Index = () => {
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
       <main className="flex-grow">
-        <Hero />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Contact />
+        <section id="home">
+          <Hero />
+        </section>
+        <section id="experience">
+          <Experience />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
       <Footer />
     </div>
