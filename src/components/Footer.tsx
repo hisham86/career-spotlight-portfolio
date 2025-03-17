@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Heart, Linkedin, Mail, Twitter } from 'lucide-react';
 import { Button } from './ui/button';
 
 const Footer = () => {
@@ -86,6 +86,16 @@ const Footer = () => {
           >
             Back to top
           </Button>
+        </div>
+        
+        {/* Built with Lovable Section */}
+        <div className="mt-8 pt-8 border-t border-border flex justify-center">
+          <div className="flex items-center bg-black/10 backdrop-blur-sm px-4 py-2 rounded-full">
+            <Heart size={18} className="text-amber-500 fill-amber-500 mr-2" />
+            <span className="text-sm text-muted-foreground">
+              Built by Hisham with <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" className="text-amber-500 hover:underline">Lovable</a>
+            </span>
+          </div>
         </div>
       </div>
     </footer>
