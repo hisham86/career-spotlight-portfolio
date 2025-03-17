@@ -74,9 +74,17 @@ const Footer = () => {
         </div>
         
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border">
-          <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Hisham. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-3 mb-4 md:mb-0">
+            <p className="text-sm text-muted-foreground">
+              &copy; {new Date().getFullYear()} Hisham. All rights reserved.
+            </p>
+            <div className="flex items-center bg-black/5 backdrop-blur-sm px-3 py-1 rounded-full">
+              <Heart size={14} className="text-amber-500 fill-amber-500 mr-1.5" />
+              <span className="text-xs text-muted-foreground">
+                Built by Hisham with <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" className="text-amber-500 hover:underline">Lovable</a>
+              </span>
+            </div>
+          </div>
           
           <Button 
             onClick={scrollToTop}
@@ -86,16 +94,6 @@ const Footer = () => {
           >
             Back to top
           </Button>
-        </div>
-        
-        {/* Built with Lovable Section */}
-        <div className="mt-8 pt-8 border-t border-border flex justify-center">
-          <div className="flex items-center bg-black/10 backdrop-blur-sm px-4 py-2 rounded-full">
-            <Heart size={18} className="text-amber-500 fill-amber-500 mr-2" />
-            <span className="text-sm text-muted-foreground">
-              Built by Hisham with <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" className="text-amber-500 hover:underline">Lovable</a>
-            </span>
-          </div>
         </div>
       </div>
     </footer>
