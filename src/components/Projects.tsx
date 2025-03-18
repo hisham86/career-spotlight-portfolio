@@ -53,8 +53,11 @@ const Projects = () => {
   const projectsRef = useScrollReveal<HTMLDivElement>();
   
   return (
-    <section id="projects" className="section bg-blue-50">
-      <div className="section-inner">
+    <section id="projects" className="section bg-background relative">
+      {/* Add a subtle gradient background */}
+      <div className="absolute inset-0 dark-gradient-bg opacity-50"></div>
+      
+      <div className="section-inner relative z-10">
         <SectionTitle 
           title="Selected Projects" 
           subtitle="Product Leadership"
@@ -67,7 +70,7 @@ const Projects = () => {
           {projects.map((project, idx) => (
             <div 
               key={idx}
-              className={`glass-card rounded-lg p-6 transition-all duration-300 transform ${
+              className={`glass-card-dark rounded-lg p-6 transition-all duration-300 transform ${
                 hoveredProject === idx ? 'scale-[1.02] shadow-lg' : 'hover:shadow-md'
               }`}
               onMouseEnter={() => setHoveredProject(idx)}
@@ -107,7 +110,7 @@ const Projects = () => {
                 {project.tags.map((tag, tagIdx) => (
                   <span 
                     key={tagIdx}
-                    className="text-xs px-2 py-1 bg-foreground/5 text-foreground/60 rounded"
+                    className="text-xs px-2 py-1 bg-secondary/80 text-secondary-foreground rounded"
                   >
                     {tag}
                   </span>

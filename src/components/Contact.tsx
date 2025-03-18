@@ -8,8 +8,11 @@ const Contact = () => {
   const formRef = useScrollReveal<HTMLFormElement>({ threshold: 0.2 });
   
   return (
-    <section id="contact" className="section bg-white">
-      <div className="section-inner">
+    <section id="contact" className="section bg-background relative">
+      {/* Add subtle gradient in background */}
+      <div className="absolute inset-0 dark-gradient-bg opacity-20"></div>
+      
+      <div className="section-inner relative z-10">
         <SectionTitle 
           title="Get in Touch" 
           subtitle="Contact Me"
@@ -81,7 +84,7 @@ const Contact = () => {
           
           <form 
             ref={formRef}
-            className="reveal-text glass-card rounded-lg p-6 md:p-8"
+            className="reveal-text glass-card-dark rounded-lg p-6 md:p-8"
             onSubmit={(e) => e.preventDefault()}
           >
             <div className="space-y-4">
@@ -92,7 +95,7 @@ const Contact = () => {
                 <input
                   id="name"
                   type="text"
-                  className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full px-4 py-2 bg-secondary border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground"
                   placeholder="Your name"
                   required
                 />
@@ -105,7 +108,7 @@ const Contact = () => {
                 <input
                   id="email"
                   type="email"
-                  className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full px-4 py-2 bg-secondary border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground"
                   placeholder="Your email"
                   required
                 />
@@ -118,7 +121,7 @@ const Contact = () => {
                 <input
                   id="subject"
                   type="text"
-                  className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full px-4 py-2 bg-secondary border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground"
                   placeholder="Subject"
                   required
                 />
@@ -131,7 +134,7 @@ const Contact = () => {
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  className="w-full px-4 py-2 bg-secondary border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground"
                   placeholder="Your message"
                   required
                 />

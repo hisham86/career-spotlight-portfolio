@@ -54,8 +54,11 @@ const Experience = () => {
   const sectionRef = useScrollReveal<HTMLDivElement>();
   
   return (
-    <section id="experience" className="section bg-white">
-      <div className="section-inner">
+    <section id="experience" className="section bg-background relative">
+      {/* Add subtle gradient in background */}
+      <div className="absolute inset-0 dark-gradient-bg opacity-30"></div>
+      
+      <div className="section-inner relative z-10">
         <SectionTitle 
           title="Professional Experience" 
           subtitle="Career Journey"

@@ -59,7 +59,7 @@ const Skills = () => {
   const skillsRef = useScrollReveal<HTMLDivElement>();
   
   return (
-    <section id="skills" className="section bg-gradient-to-b from-white to-blue-50">
+    <section id="skills" className="section bg-background">
       <div className="section-inner">
         <SectionTitle 
           title="Skills & Expertise" 
@@ -73,7 +73,7 @@ const Skills = () => {
           {skillCategories.map((category, idx) => (
             <div 
               key={idx}
-              className="glass-card rounded-lg p-6 transition-all duration-300 hover:shadow-md"
+              className="glass-card-dark rounded-lg p-6 transition-all duration-300 hover:shadow-md"
             >
               <h3 className="text-xl font-bold mb-4">{category.name}</h3>
               <div className="flex flex-wrap gap-2">
@@ -103,7 +103,7 @@ const Skills = () => {
               ].map((tool, idx) => (
                 <span 
                   key={idx}
-                  className="inline-block mx-3 px-4 py-2 bg-white shadow-sm rounded-md text-sm"
+                  className="inline-block mx-3 px-4 py-2 bg-secondary text-secondary-foreground shadow-sm rounded-md text-sm"
                 >
                   {tool}
                 </span>
