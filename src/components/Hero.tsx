@@ -7,7 +7,7 @@ import ScrollIndicator from './hero/ScrollIndicator';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[100vh] flex items-center pt-24 pb-16 overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center pt-20 pb-8 overflow-hidden">
       <ParticlesBackground />
       
       <div className="container max-w-6xl mx-auto px-6 md:px-8 relative z-10">
