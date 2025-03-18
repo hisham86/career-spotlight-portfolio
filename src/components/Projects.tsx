@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import SectionTitle from './ui/SectionTitle';
 import { ArrowUpRight } from 'lucide-react';
+import ProjectCarousel from './skills/ProjectCarousel';
 
 interface Project {
   title: string;
@@ -118,6 +119,12 @@ const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+        
+        {/* Project Screenshots Carousel */}
+        <div className="mt-16">
+          <h3 className="text-xl font-bold mb-6 text-center">Project Screenshots</h3>
+          <ProjectCarousel />
         </div>
       </div>
     </section>

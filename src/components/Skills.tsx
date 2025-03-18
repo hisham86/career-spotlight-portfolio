@@ -1,7 +1,6 @@
 
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import SectionTitle from './ui/SectionTitle';
-import ProjectCarousel from './skills/ProjectCarousel';
 
 interface SkillCategory {
   name: string;
@@ -112,9 +111,6 @@ const Skills = () => {
             </div>
           </div>
         </div>
-        
-        {/* Project Carousel */}
-        <ProjectCarousel />
       </div>
     </section>
   );
