@@ -1,7 +1,8 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import AnimatedLogo from './ui/AnimatedLogo';
+import { Button } from './ui/button';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,6 +20,14 @@ const Header = () => {
   
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleDownload = () => {
+    // Create a link to download the file
+    const link = document.createElement('a');
+    link.href = '/portfolio-samples.pdf'; // This would be the path to your PDF file
+    link.download = 'Hisham-Portfolio-Samples.pdf';
+    link.click();
   };
   
   const navLinks = [
@@ -58,6 +67,15 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
+            <Button
+              onClick={handleDownload}
+              variant="outline"
+              size="sm"
+              className="border-primary/40 text-primary hover:bg-primary/10 flex items-center gap-2"
+            >
+              <Download size={16} />
+              Download Samples
+            </Button>
             <a
               href="#contact"
               className="btn-primary text-sm"
@@ -91,6 +109,17 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
+            <Button
+              onClick={() => {
+                handleDownload();
+                setIsMobileMenuOpen(false);
+              }}
+              variant="outline"
+              className="border-primary/40 text-primary hover:bg-primary/10 flex items-center gap-2 justify-center"
+            >
+              <Download size={16} />
+              Download My Work Samples
+            </Button>
             <a
               href="#contact"
               className="btn-primary inline-flex justify-center"

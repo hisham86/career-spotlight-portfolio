@@ -1,10 +1,20 @@
 
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { Download } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const HeroContent = () => {
   const titleRef = useScrollReveal<HTMLHeadingElement>();
   const subtitleRef = useScrollReveal<HTMLParagraphElement>({ threshold: 0.2 });
   const ctaRef = useScrollReveal<HTMLDivElement>({ threshold: 0.3 });
+
+  const handleDownload = () => {
+    // Create a link to download the file
+    const link = document.createElement('a');
+    link.href = '/portfolio-samples.pdf'; // This would be the path to your PDF file
+    link.download = 'Hisham-Portfolio-Samples.pdf';
+    link.click();
+  };
 
   return (
     <div className="max-w-3xl">
@@ -57,6 +67,14 @@ const HeroContent = () => {
           </svg>
           Connect via LinkedIn
         </a>
+        <Button
+          onClick={handleDownload}
+          variant="outline"
+          className="border-primary/40 text-primary hover:bg-primary/10 flex items-center gap-2"
+        >
+          <Download size={16} />
+          Download My Work Samples
+        </Button>
         <a href="#contact" className="btn-outline border-orange-500/40 text-orange-400 hover:bg-orange-500/10">
           Get in Touch
         </a>
