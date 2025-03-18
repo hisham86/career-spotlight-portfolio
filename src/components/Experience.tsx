@@ -1,6 +1,8 @@
+
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import SectionTitle from './ui/SectionTitle';
 import { Calendar, Building, Briefcase } from 'lucide-react';
+import AIGlowingSphere from './experience/AIGlowingSphere';
 
 interface ExperienceItem {
   title: string;
@@ -114,6 +116,9 @@ const Experience = () => {
       <div className="absolute inset-0 dark-gradient-bg opacity-30"></div>
       
       <div className="section-inner relative z-10">
+        {/* Add the AI Glowing Sphere animation before the section title */}
+        <AIGlowingSphere />
+        
         <SectionTitle 
           title="Professional Experience" 
           subtitle="Career Journey"
