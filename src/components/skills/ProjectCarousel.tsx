@@ -39,34 +39,30 @@ const ProjectCarousel = () => {
   };
 
   return (
-    <div className="mt-16">
-      <h3 className="text-xl font-bold mb-6 text-center">Launched Online Campaigns</h3>
-      
-      <div className="relative max-w-5xl mx-auto px-10">
-        <Carousel className="w-full">
-          <CarouselContent>
-            {projectImages.map((image, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="relative group p-1">
-                  <div className="overflow-hidden rounded-lg border border-border">
-                    <div 
-                      className="h-64 bg-cover bg-center cursor-pointer relative group"
-                      style={{ backgroundImage: `url(${image})` }}
-                      onClick={() => handleImageClick(image)}
-                    >
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <ZoomIn className="text-white h-8 w-8" />
-                      </div>
+    <div className="relative max-w-5xl mx-auto px-10">
+      <Carousel className="w-full">
+        <CarouselContent>
+          {projectImages.map((image, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <div className="relative group p-1">
+                <div className="overflow-hidden rounded-lg border border-border">
+                  <div 
+                    className="h-64 bg-cover bg-center cursor-pointer relative group"
+                    style={{ backgroundImage: `url(${image})` }}
+                    onClick={() => handleImageClick(image)}
+                  >
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <ZoomIn className="text-white h-8 w-8" />
                     </div>
                   </div>
                 </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-0 bg-background/80 hover:bg-background border-primary text-primary" />
-          <CarouselNext className="right-0 bg-background/80 hover:bg-background border-primary text-primary" />
-        </Carousel>
-      </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="left-0 bg-background/80 hover:bg-background border-primary text-primary" />
+        <CarouselNext className="right-0 bg-background/80 hover:bg-background border-primary text-primary" />
+      </Carousel>
 
       <Dialog open={!!openImage} onOpenChange={handleCloseDialog}>
         <DialogContent className="max-w-[90vw] max-h-[90vh] p-0 overflow-hidden">
