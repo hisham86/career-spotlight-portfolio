@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 const ParticlesBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
-  // Enhanced dark theme animation effect
+  // Enhanced dark theme animation effect with orange color scheme
   useEffect(() => {
     const particles: HTMLDivElement[] = [];
     const particlesContainer = document.querySelector('.particles-container');
@@ -31,8 +31,8 @@ const ParticlesBackground = () => {
       // Random duration
       particle.style.animationDuration = `${Math.random() * 15 + 15}s`;
       
-      // Random color (blue/purple hues with increased opacity for dark theme)
-      const hue = Math.random() * 60 + 200; // 200-260 (blue to purple)
+      // Random color (orange/amber hues with increased opacity for dark theme)
+      const hue = Math.random() * 30 + 15; // 15-45 (orange to amber)
       const saturation = Math.random() * 30 + 70; // 70-100%
       const lightness = Math.random() * 40 + 60; // 60-100%
       particle.style.backgroundColor = `hsla(${hue}, ${saturation}%, ${lightness}%, ${Math.random() * 0.6 + 0.3})`;
@@ -42,7 +42,7 @@ const ParticlesBackground = () => {
       particles.push(particle);
     }
     
-    // Enhanced Canvas animation for dark theme
+    // Enhanced Canvas animation for dark theme with orange accents
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -120,7 +120,7 @@ const ParticlesBackground = () => {
             ctx.beginPath();
             ctx.moveTo(point.x, point.y);
             ctx.lineTo(otherPoint.x, otherPoint.y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.15})`;
+            ctx.strokeStyle = `rgba(249, 115, 22, ${opacity * 0.15})`; // Orange color
             ctx.lineWidth = Math.min(point.radius, otherPoint.radius) * 0.5;
             ctx.stroke();
           }
@@ -134,8 +134,8 @@ const ParticlesBackground = () => {
           point.x, point.y, 0,
           point.x, point.y, point.radius * 4
         );
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
-        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+        gradient.addColorStop(0, 'rgba(249, 115, 22, 0.3)'); // Orange color
+        gradient.addColorStop(1, 'rgba(249, 115, 22, 0)');
         
         ctx.beginPath();
         ctx.arc(point.x, point.y, point.radius * 4, 0, Math.PI * 2);
@@ -145,7 +145,7 @@ const ParticlesBackground = () => {
         // Core point
         ctx.beginPath();
         ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.8)';
+        ctx.fillStyle = 'rgba(249, 115, 22, 0.8)'; // Orange color
         ctx.fill();
       });
       
@@ -172,12 +172,12 @@ const ParticlesBackground = () => {
       <canvas ref={canvasRef} className="absolute inset-0 z-0 opacity-70" />
       <div className="particles-container" />
       
-      {/* Enhanced background gradient for dark theme */}
+      {/* Enhanced background gradient for dark theme with orange accents */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-background" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full filter blur-[180px] opacity-15 animate-float" />
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-indigo-700 rounded-full filter blur-[150px] opacity-15 animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-purple-600 rounded-full filter blur-[120px] opacity-10 animate-float" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-600 rounded-full filter blur-[180px] opacity-15 animate-float" />
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-amber-700 rounded-full filter blur-[150px] opacity-15 animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-orange-500 rounded-full filter blur-[120px] opacity-10 animate-float" style={{ animationDelay: '4s' }} />
       </div>
     </>
   );

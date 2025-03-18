@@ -57,7 +57,7 @@ const HeroContent = () => {
           </svg>
           Connect via LinkedIn
         </a>
-        <a href="#contact" className="btn-outline">
+        <a href="#contact" className="btn-outline border-orange-500/40 text-orange-400 hover:bg-orange-500/10">
           Get in Touch
         </a>
       </div>

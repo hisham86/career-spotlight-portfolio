@@ -17,8 +17,8 @@ const ProfileImage = () => {
         />
         <div className="absolute inset-0 ring-4 ring-primary/20 rounded-full"></div>
         
-        {/* Enhanced glow effect for dark theme */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-primary/40 to-indigo-500/40 rounded-full blur-xl opacity-60 animate-pulse"></div>
+        {/* Enhanced glow effect with orange theme */}
+        <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/40 to-amber-500/40 rounded-full blur-xl opacity-60 animate-pulse"></div>
       </div>
     </div>
   );

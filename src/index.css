@@ -13,7 +13,7 @@
     --popover: 222 47% 6%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 217 91% 60%;
+    --primary: 20 100% 57%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 217 33% 17%;
@@ -22,7 +22,7 @@
     --muted: 217 33% 17%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 217 33% 17%;
+    --accent: 20 90% 45%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -30,18 +30,18 @@
 
     --border: 217 33% 20%;
     --input: 217 33% 17%;
-    --ring: 224 76% 48%;
+    --ring: 20 100% 57%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 222 47% 6%;
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary: 20 100% 57%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 217 33% 17%;
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 217 33% 17%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 20 100% 57%;
   }
 }
 
@@ -174,19 +174,19 @@ body {
   }
 }
 
-/* Glowing text effect - enhanced for dark theme */
+/* Glow text effect - changed to orange */
 .glow-text {
-  @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500;
-  filter: drop-shadow(0 0 1rem rgba(59, 130, 246, 0.6));
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500;
+  filter: drop-shadow(0 0 1rem rgba(249, 115, 22, 0.6));
 }
 
-/* New dark theme specific styles */
+/* Dark theme specific styles - updated to orange */
 .dark-glow {
-  box-shadow: 0 0 15px 5px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 15px 5px rgba(249, 115, 22, 0.2);
 }
 
 .dark-gradient-bg {
-  background: radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.15), rgba(17, 24, 39, 0) 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.15), rgba(17, 24, 39, 0) 70%);
 }
 
 .dark-gradient-border {
@@ -195,5 +195,5 @@ body {
   background-origin: padding-box, border-box;
   background-image: 
     linear-gradient(to right, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)),
-    linear-gradient(to right, rgba(59, 130, 246, 0.5), rgba(99, 102, 241, 0.5));
+    linear-gradient(to right, rgba(249, 115, 22, 0.5), rgba(251, 146, 60, 0.5));
 }
