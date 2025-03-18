@@ -123,7 +123,7 @@ const Projects = () => {
         
         {/* Project Screenshots Carousel */}
         <div className="mt-16">
-          <h3 className="text-xl font-bold mb-6 text-center">Project Screenshots</h3>
+          <h3 className="text-xl font-bold mb-6 text-center">Launched Online Campaigns</h3>
           <ProjectCarousel />
         </div>
       </div>
