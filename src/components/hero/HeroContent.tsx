@@ -1,6 +1,6 @@
 
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { Download } from 'lucide-react';
+import { Download, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const HeroContent = () => {
@@ -13,6 +13,14 @@ const HeroContent = () => {
     const link = document.createElement('a');
     link.href = '/portfolio-samples.pdf'; // This would be the path to your PDF file
     link.download = 'Hisham-Portfolio-Samples.pdf';
+    link.click();
+  };
+
+  const handleDownloadCV = () => {
+    // Create a link to download the CV file
+    const link = document.createElement('a');
+    link.href = '/hisham-cv.pdf'; // This would be the path to your CV PDF file
+    link.download = 'Hisham-CV.pdf';
     link.click();
   };
 
@@ -74,6 +82,14 @@ const HeroContent = () => {
         >
           <Download size={16} />
           Download My Work Samples
+        </Button>
+        <Button
+          onClick={handleDownloadCV}
+          variant="outline"
+          className="border-orange-500/40 text-orange-400 hover:bg-orange-500/10 flex items-center gap-2"
+        >
+          <FileText size={16} />
+          My Updated CV
         </Button>
         <a href="#contact" className="btn-outline border-orange-500/40 text-orange-400 hover:bg-orange-500/10">
           Get in Touch

@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, Download, FileText } from 'lucide-react';
 import AnimatedLogo from './ui/AnimatedLogo';
 import { Button } from './ui/button';
 
@@ -27,6 +27,14 @@ const Header = () => {
     const link = document.createElement('a');
     link.href = '/portfolio-samples.pdf'; // This would be the path to your PDF file
     link.download = 'Hisham-Portfolio-Samples.pdf';
+    link.click();
+  };
+  
+  const handleDownloadCV = () => {
+    // Create a link to download the CV file
+    const link = document.createElement('a');
+    link.href = '/hisham-cv.pdf'; // This would be the path to your CV PDF file
+    link.download = 'Hisham-CV.pdf';
     link.click();
   };
   
@@ -76,6 +84,15 @@ const Header = () => {
               <Download size={16} />
               Download Samples
             </Button>
+            <Button
+              onClick={handleDownloadCV}
+              variant="outline"
+              size="sm"
+              className="border-orange-500/40 text-orange-400 hover:bg-orange-500/10 flex items-center gap-2"
+            >
+              <FileText size={16} />
+              My CV
+            </Button>
             <a
               href="#contact"
               className="btn-primary text-sm"
@@ -119,6 +136,17 @@ const Header = () => {
             >
               <Download size={16} />
               Download My Work Samples
+            </Button>
+            <Button
+              onClick={() => {
+                handleDownloadCV();
+                setIsMobileMenuOpen(false);
+              }}
+              variant="outline"
+              className="border-orange-500/40 text-orange-400 hover:bg-orange-500/10 flex items-center gap-2 justify-center"
+            >
+              <FileText size={16} />
+              My Updated CV
             </Button>
             <a
               href="#contact"
