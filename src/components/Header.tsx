@@ -22,12 +22,8 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleDownload = () => {
-    // Create a link to download the file
-    const link = document.createElement('a');
-    link.href = '/portfolio-samples.pdf'; // This would be the path to your PDF file
-    link.download = 'Hisham-Portfolio-Samples.pdf';
-    link.click();
+  const handleOpenWorkSamples = () => {
+    window.open('https://drive.google.com/drive/folders/1nqIe5G0wnzvvyL5pGBrdr30f-Q7Nq4Pn?usp=sharing', '_blank');
   };
   
   const handleDownloadCV = () => {
@@ -76,7 +72,7 @@ const Header = () => {
               </a>
             ))}
             <Button
-              onClick={handleDownload}
+              onClick={handleOpenWorkSamples}
               variant="outline"
               size="sm"
               className="border-primary/40 text-primary hover:bg-primary/10 flex items-center gap-2"
@@ -128,7 +124,7 @@ const Header = () => {
             ))}
             <Button
               onClick={() => {
-                handleDownload();
+                handleOpenWorkSamples();
                 setIsMobileMenuOpen(false);
               }}
               variant="outline"

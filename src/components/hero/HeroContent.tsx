@@ -8,12 +8,8 @@ const HeroContent = () => {
   const subtitleRef = useScrollReveal<HTMLParagraphElement>({ threshold: 0.2 });
   const ctaRef = useScrollReveal<HTMLDivElement>({ threshold: 0.3 });
 
-  const handleDownload = () => {
-    // Create a link to download the file
-    const link = document.createElement('a');
-    link.href = '/portfolio-samples.pdf'; // This would be the path to your PDF file
-    link.download = 'Hisham-Portfolio-Samples.pdf';
-    link.click();
+  const handleOpenWorkSamples = () => {
+    window.open('https://drive.google.com/drive/folders/1nqIe5G0wnzvvyL5pGBrdr30f-Q7Nq4Pn?usp=sharing', '_blank');
   };
 
   const handleDownloadCV = () => {
@@ -76,7 +72,7 @@ const HeroContent = () => {
           Connect via LinkedIn
         </a>
         <Button
-          onClick={handleDownload}
+          onClick={handleOpenWorkSamples}
           variant="outline"
           className="border-primary/40 text-primary hover:bg-primary/10 flex items-center gap-2"
         >
