@@ -1,4 +1,3 @@
-
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { Download, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,11 +12,7 @@ const HeroContent = () => {
   };
 
   const handleDownloadCV = () => {
-    // Create a link to download the CV file
-    const link = document.createElement('a');
-    link.href = '/hisham-cv.pdf'; // This would be the path to your CV PDF file
-    link.download = 'Hisham-CV.pdf';
-    link.click();
+    window.open('https://drive.google.com/file/d/17FLfdEeSbjm6C6WwRI3zLcMKLQqRJjO9/view?usp=sharing', '_blank');
   };
 
   return (

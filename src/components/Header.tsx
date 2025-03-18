@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, Download, FileText } from 'lucide-react';
 import AnimatedLogo from './ui/AnimatedLogo';
@@ -27,11 +26,7 @@ const Header = () => {
   };
   
   const handleDownloadCV = () => {
-    // Create a link to download the CV file
-    const link = document.createElement('a');
-    link.href = '/hisham-cv.pdf'; // This would be the path to your CV PDF file
-    link.download = 'Hisham-CV.pdf';
-    link.click();
+    window.open('https://drive.google.com/file/d/17FLfdEeSbjm6C6WwRI3zLcMKLQqRJjO9/view?usp=sharing', '_blank');
   };
   
   const navLinks = [
@@ -51,7 +46,6 @@ const Header = () => {
     >
       <div className="container max-w-6xl mx-auto px-6 md:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <a 
             href="#" 
             className="flex items-center space-x-2 text-foreground font-medium"
@@ -60,7 +54,6 @@ const Header = () => {
             <span className="text-xl font-bold">Hisham</span>
           </a>
           
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
@@ -97,7 +90,6 @@ const Header = () => {
             </a>
           </nav>
           
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-foreground p-2"
             onClick={toggleMobileMenu}
@@ -108,7 +100,6 @@ const Header = () => {
         </div>
       </div>
       
-      {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-md py-4 px-6 animate-fade-in">
           <nav className="flex flex-col space-y-4">
