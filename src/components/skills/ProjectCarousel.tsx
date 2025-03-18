@@ -47,7 +47,7 @@ const ProjectCarousel = () => {
               <div className="relative group p-1">
                 <div className="overflow-hidden rounded-lg border border-border">
                   <div 
-                    className="h-64 bg-cover bg-center cursor-pointer relative group"
+                    className="h-64 bg-cover bg-center cursor-pointer relative group transform transition-all duration-500 group-hover:rotate-3 hover:scale-105"
                     style={{ backgroundImage: `url(${image})` }}
                     onClick={() => handleImageClick(image)}
                   >
