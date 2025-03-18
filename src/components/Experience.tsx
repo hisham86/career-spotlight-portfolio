@@ -11,11 +11,31 @@ interface ExperienceItem {
   achievements: string[];
 }
 
+const calculateDuration = (startDate: string): string => {
+  const start = new Date(startDate);
+  const now = new Date();
+  
+  const years = now.getFullYear() - start.getFullYear();
+  const months = now.getMonth() - start.getMonth();
+  
+  const totalMonths = years * 12 + months;
+  const finalYears = Math.floor(totalMonths / 12);
+  const finalMonths = totalMonths % 12;
+  
+  if (finalYears > 0 && finalMonths > 0) {
+    return `${finalYears} year${finalYears > 1 ? 's' : ''} ${finalMonths} month${finalMonths > 1 ? 's' : ''}`;
+  } else if (finalYears > 0) {
+    return `${finalYears} year${finalYears > 1 ? 's' : ''}`;
+  } else {
+    return `${finalMonths} month${finalMonths > 1 ? 's' : ''}`;
+  }
+};
+
 const experiences: ExperienceItem[] = [
   {
     title: "Senior Product Manager",
-    company: "Microsoft",
-    period: "2020 - Present",
+    company: "Xsolla",
+    period: `May 2022 - Present (${calculateDuration('2022-05-01')})`,
     description: "Leading product strategy and development for enterprise software solutions, driving growth and innovation through user-centric design and data-driven decision making.",
     achievements: [
       "Led the development of a new enterprise product that increased revenue by 30% in its first year",
