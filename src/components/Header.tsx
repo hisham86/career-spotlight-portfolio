@@ -50,7 +50,7 @@ const Header = () => {
           <a 
             href="#" 
             className={`flex items-center space-x-2 font-medium ${
-              isScrolled ? 'text-foreground' : 'text-white'
+              isScrolled ? 'text-gray-900' : 'text-white'
             }`}
           >
             <AnimatedLogo />
@@ -64,7 +64,7 @@ const Header = () => {
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   isScrolled 
-                    ? 'text-foreground/80 hover:text-primary' 
+                    ? 'text-gray-900 hover:text-primary' 
                     : 'text-white/80 hover:text-white'
                 }`}
               >
@@ -75,8 +75,10 @@ const Header = () => {
               onClick={handleOpenWorkSamples}
               variant="outline"
               size="sm"
-              className={`border-primary/40 text-primary hover:bg-primary/10 flex items-center gap-2 ${
-                isScrolled ? 'bg-white/50' : ''
+              className={`border-primary/40 hover:bg-primary/10 flex items-center gap-2 ${
+                isScrolled 
+                  ? 'bg-white/50 text-gray-900' 
+                  : 'text-primary'
               }`}
             >
               <Download size={16} />
@@ -86,8 +88,10 @@ const Header = () => {
               onClick={handleDownloadCV}
               variant="outline"
               size="sm"
-              className={`border-orange-500/40 text-orange-400 hover:bg-orange-500/10 flex items-center gap-2 ${
-                isScrolled ? 'bg-white/50' : ''
+              className={`border-orange-500/40 hover:bg-orange-500/10 flex items-center gap-2 ${
+                isScrolled 
+                  ? 'bg-white/50 text-gray-900' 
+                  : 'text-orange-400'
               }`}
             >
               <FileText size={16} />
@@ -103,7 +107,7 @@ const Header = () => {
           
           <button
             className={`md:hidden p-2 ${
-              isScrolled ? 'text-foreground' : 'text-white'
+              isScrolled ? 'text-gray-900' : 'text-white'
             }`}
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
@@ -120,7 +124,7 @@ const Header = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground/80 hover:text-primary py-2 transition-colors duration-200"
+                className="text-gray-900 hover:text-primary py-2 transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
@@ -132,7 +136,7 @@ const Header = () => {
                 setIsMobileMenuOpen(false);
               }}
               variant="outline"
-              className="border-primary/40 text-primary hover:bg-primary/10 flex items-center gap-2 justify-center"
+              className="border-primary/40 text-gray-900 hover:bg-primary/10 flex items-center gap-2 justify-center"
             >
               <Download size={16} />
               Download My Work Samples
@@ -143,7 +147,7 @@ const Header = () => {
                 setIsMobileMenuOpen(false);
               }}
               variant="outline"
-              className="border-orange-500/40 text-orange-400 hover:bg-orange-500/10 flex items-center gap-2 justify-center"
+              className="border-orange-500/40 text-gray-900 hover:bg-orange-500/10 flex items-center gap-2 justify-center"
             >
               <FileText size={16} />
               My Updated CV
