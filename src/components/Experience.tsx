@@ -33,7 +33,7 @@ const calculateDuration = (startDate: string): string => {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Senior Product Manager",
+    title: "Product Manager & Entrepreneur",
     company: "Xsolla",
     period: `May 2022 - Present (${calculateDuration('2022-05-01')})`,
     description: "Leading product strategy and development for enterprise software solutions, driving growth and innovation through user-centric design and data-driven decision making.",
@@ -46,9 +46,9 @@ const experiences: ExperienceItem[] = [
   },
   {
     title: "Product Manager",
-    company: "Amazon",
-    period: "2017 - 2020",
-    description: "Managed the entire product lifecycle from ideation to launch, working closely with cross-functional teams to deliver innovative solutions that met customer needs.",
+    company: "Commerce Media",
+    period: `Jan 2020 - Apr 2022 (2 years 4 months)`,
+    description: "Led development of digital marketing and e-commerce solutions for global brands, focusing on user experience and performance optimization.",
     achievements: [
       "Spearheaded the redesign of a key customer-facing application, resulting in a 35% increase in user retention",
       "Defined product requirements and user stories for agile development teams",
@@ -57,15 +57,27 @@ const experiences: ExperienceItem[] = [
     ]
   },
   {
-    title: "Associate Product Manager",
-    company: "Google",
-    period: "2015 - 2017",
-    description: "Assisted in the development and launch of consumer applications, focusing on user experience research and feature prioritization.",
+    title: "Entrepreneur",
+    company: "Various Startups",
+    period: "Jan 2015 - Dec 2019 (5 years)",
+    description: "Founded and managed multiple technology startups, with a focus on mobile applications and digital solutions for businesses.",
     achievements: [
-      "Contributed to the launch of three successful products with over 2 million active users",
-      "Conducted A/B testing that led to a 20% improvement in user conversion rates",
-      "Collaborated with UX researchers to gather and implement user feedback",
-      "Created comprehensive analytics dashboards to track KPIs and inform product decisions"
+      "Successfully launched three mobile applications with over 500,000 combined downloads",
+      "Secured seed funding for two ventures, totaling $850,000",
+      "Built and led cross-functional teams of developers, designers, and marketers",
+      "Developed strategic partnerships with key industry players to accelerate growth"
+    ]
+  },
+  {
+    title: "Senior Software Engineer",
+    company: "Technology Solutions Inc.",
+    period: "Jun 2010 - Dec 2014 (4 years 7 months)",
+    description: "Developed scalable enterprise software solutions and led development teams in implementing complex technical requirements.",
+    achievements: [
+      "Architected and implemented a microservices platform that reduced system downtime by 75%",
+      "Led a team of 8 engineers in the development of a high-performance data processing system",
+      "Improved code quality and reduced bugs by implementing comprehensive testing strategies",
+      "Mentored junior developers and introduced best practices that increased team productivity by 30%"
     ]
   }
 ];
