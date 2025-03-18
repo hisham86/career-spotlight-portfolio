@@ -3,7 +3,6 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import ParticlesBackground from './hero/ParticlesBackground';
 import HeroContent from './hero/HeroContent';
 import ProfileImage from './hero/ProfileImage';
-import ScrollIndicator from './hero/ScrollIndicator';
 
 const Hero = () => {
   return (
@@ -15,8 +14,6 @@ const Hero = () => {
           <HeroContent />
           <ProfileImage />
         </div>
-        
-        <ScrollIndicator />
       </div>
     </section>
   );
