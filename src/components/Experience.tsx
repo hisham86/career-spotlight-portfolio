@@ -1,3 +1,4 @@
+
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import SectionTitle from './ui/SectionTitle';
 import { Calendar, Building, Briefcase } from 'lucide-react';
@@ -68,7 +69,7 @@ const experiences: ExperienceItem[] = [
     ]
   },
   {
-    title: "Product Manager (Search algorithm, product ranking & Online Promotion)",
+    title: "Product Manager (Search Algorithm, Product Ranking & Online Promotion)",
     company: "11street.my (Celcom Planet Sdn Bhd)",
     period: "Jan 2015 - Apr 2018 · 3 yrs 4 mos",
     description: "Managed search functionality and online promotion systems for one of Malaysia's largest e-commerce platforms.",
