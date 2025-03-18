@@ -1,4 +1,3 @@
-
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import SectionTitle from './ui/SectionTitle';
 import { Calendar, Building, Briefcase } from 'lucide-react';
@@ -78,6 +77,30 @@ const experiences: ExperienceItem[] = [
       "Designed and launched promotional features that increased merchant participation by 60%",
       "Led integration of AI-powered search recommendations that improved user engagement",
       "Collaborated with marketing teams to create data-driven promotional campaigns"
+    ]
+  },
+  {
+    title: "Project Engineer",
+    company: "Technip",
+    period: "Apr 2012 - Dec 2014 · 2 yrs 9 mos",
+    description: "Executed multiple Brownfield and Greenfield projects in the oil and gas industry, based in Kuala Lumpur, Malaysia.",
+    achievements: [
+      "Successfully executed 3 Brownfield projects worth RM 2.9 million simultaneously and secured RM 500,000 in net profit (17% which is above company average 9% profit per project)",
+      "Managed 3 Greenfield projects which include designing a Platform for Statoil (Norwegian)",
+      "Designed a knowledge sharing portal for Project Management Department",
+      "Volunteered and organized Project Management Department trip to Singapore and Bali"
+    ]
+  },
+  {
+    title: "Project Engineer",
+    company: "Samsung Engineering",
+    period: "Apr 2010 - Mar 2012 · 2 yrs",
+    description: "Served as Mechanical Project Engineer for international oil and gas projects, based in Gangnam-gu, Seoul, Korea.",
+    achievements: [
+      "In charge as Mechanical Project Engineer in Shah Gas Development project located in Abu Dhabi, United Arab Emirates (U.A.E) for ADNOC (Abu Dhabi National Oil Company)",
+      "Managed Procurement and Expediting for Mechanical equipment supplier from Abu Dhabi, America, China, Japan and United Kingdom",
+      "Inspected Japanese Mechanical Package vendors in Kobe, Hiroshima and Tokyo just after the Fukushima Daiichi nuclear disaster",
+      "Acting as Client Coordinator to manage their welfare and family needs"
     ]
   }
 ];
