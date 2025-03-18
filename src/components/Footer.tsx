@@ -32,7 +32,7 @@ const Footer = () => {
                 <Linkedin size={18} />
               </a>
               <a 
-                href="https://github.com" 
+                href="https://github.com/hisham86" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground/10 transition-colors"
@@ -40,7 +40,7 @@ const Footer = () => {
                 <Github size={18} />
               </a>
               <a 
-                href="https://twitter.com" 
+                href="https://x.com/Solo_Level_27" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground/10 transition-colors"

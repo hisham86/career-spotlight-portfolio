@@ -1,7 +1,7 @@
 
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import SectionTitle from './ui/SectionTitle';
-import { Mail, Linkedin, MapPin, Phone } from 'lucide-react';
+import { Mail, Linkedin, MapPin, Phone, Github, Twitter } from 'lucide-react';
 
 const Contact = () => {
   const contactRef = useScrollReveal<HTMLDivElement>();
@@ -54,6 +54,40 @@ const Contact = () => {
                     className="font-medium hover:text-primary transition-colors"
                   >
                     linkedin.com/in/hisham86
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                  <Github size={18} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">GitHub</p>
+                  <a 
+                    href="https://github.com/hisham86" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="font-medium hover:text-primary transition-colors"
+                  >
+                    github.com/hisham86
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                  <Twitter size={18} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Twitter</p>
+                  <a 
+                    href="https://x.com/Solo_Level_27" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="font-medium hover:text-primary transition-colors"
+                  >
+                    @Solo_Level_27
                   </a>
                 </div>
               </div>
