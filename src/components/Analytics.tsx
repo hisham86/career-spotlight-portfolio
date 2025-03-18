@@ -125,7 +125,7 @@ const Analytics = () => {
       <div className="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[80vh] overflow-auto">
         <div className="p-6">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold">Real-time Analytics</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Real-time Analytics</h2>
             <button 
               onClick={() => setIsOpen(false)}
               className="text-gray-500 hover:text-gray-800"
@@ -140,22 +140,22 @@ const Analytics = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-lg font-semibold mb-3">Page Views ({pageViews.length})</h3>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">Page Views ({pageViews.length})</h3>
               <div className="border rounded-lg overflow-hidden">
                 <table className="w-full text-sm">
                   <thead className="bg-gray-100">
                     <tr>
-                      <th className="py-2 px-3 text-left">Time</th>
-                      <th className="py-2 px-3 text-left">Path</th>
-                      <th className="py-2 px-3 text-left">Referrer</th>
+                      <th className="py-2 px-3 text-left text-gray-800">Time</th>
+                      <th className="py-2 px-3 text-left text-gray-800">Path</th>
+                      <th className="py-2 px-3 text-left text-gray-800">Referrer</th>
                     </tr>
                   </thead>
                   <tbody>
                     {pageViews.map((view, i) => (
                       <tr key={i} className="border-t">
-                        <td className="py-2 px-3">{formatTime(view.timestamp)}</td>
-                        <td className="py-2 px-3">{view.path}</td>
-                        <td className="py-2 px-3 truncate max-w-[150px]">{view.referrer || 'Direct'}</td>
+                        <td className="py-2 px-3 text-gray-800">{formatTime(view.timestamp)}</td>
+                        <td className="py-2 px-3 text-gray-800">{view.path}</td>
+                        <td className="py-2 px-3 truncate max-w-[150px] text-gray-800">{view.referrer || 'Direct'}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -164,22 +164,22 @@ const Analytics = () => {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-3">User Interactions ({interactions.length})</h3>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">User Interactions ({interactions.length})</h3>
               <div className="border rounded-lg overflow-hidden">
                 <table className="w-full text-sm">
                   <thead className="bg-gray-100">
                     <tr>
-                      <th className="py-2 px-3 text-left">Time</th>
-                      <th className="py-2 px-3 text-left">Type</th>
-                      <th className="py-2 px-3 text-left">Target</th>
+                      <th className="py-2 px-3 text-left text-gray-800">Time</th>
+                      <th className="py-2 px-3 text-left text-gray-800">Type</th>
+                      <th className="py-2 px-3 text-left text-gray-800">Target</th>
                     </tr>
                   </thead>
                   <tbody>
                     {interactions.map((interaction, i) => (
                       <tr key={i} className="border-t">
-                        <td className="py-2 px-3">{formatTime(interaction.timestamp)}</td>
-                        <td className="py-2 px-3">{interaction.type}</td>
-                        <td className="py-2 px-3 truncate max-w-[200px]">{interaction.target}</td>
+                        <td className="py-2 px-3 text-gray-800">{formatTime(interaction.timestamp)}</td>
+                        <td className="py-2 px-3 text-gray-800">{interaction.type}</td>
+                        <td className="py-2 px-3 truncate max-w-[200px] text-gray-800">{interaction.target}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -191,7 +191,7 @@ const Analytics = () => {
           <div className="flex justify-end mt-6">
             <button 
               onClick={() => setIsOpen(false)}
-              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors"
+              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition-colors text-gray-800"
             >
               Close
             </button>
