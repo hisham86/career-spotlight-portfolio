@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X, Download, FileText } from 'lucide-react';
 import AnimatedLogo from './ui/AnimatedLogo';
@@ -48,7 +49,9 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <a 
             href="#" 
-            className="flex items-center space-x-2 text-foreground font-medium"
+            className={`flex items-center space-x-2 font-medium ${
+              isScrolled ? 'text-foreground' : 'text-white'
+            }`}
           >
             <AnimatedLogo />
             <span className="text-xl font-bold">Hisham</span>
@@ -59,7 +62,11 @@ const Header = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200"
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  isScrolled 
+                    ? 'text-foreground/80 hover:text-primary' 
+                    : 'text-white/80 hover:text-white'
+                }`}
               >
                 {link.name}
               </a>
@@ -68,7 +75,9 @@ const Header = () => {
               onClick={handleOpenWorkSamples}
               variant="outline"
               size="sm"
-              className="border-primary/40 text-primary hover:bg-primary/10 flex items-center gap-2"
+              className={`border-primary/40 text-primary hover:bg-primary/10 flex items-center gap-2 ${
+                isScrolled ? 'bg-white/50' : ''
+              }`}
             >
               <Download size={16} />
               Download Samples
@@ -77,7 +86,9 @@ const Header = () => {
               onClick={handleDownloadCV}
               variant="outline"
               size="sm"
-              className="border-orange-500/40 text-orange-400 hover:bg-orange-500/10 flex items-center gap-2"
+              className={`border-orange-500/40 text-orange-400 hover:bg-orange-500/10 flex items-center gap-2 ${
+                isScrolled ? 'bg-white/50' : ''
+              }`}
             >
               <FileText size={16} />
               My CV
@@ -91,7 +102,9 @@ const Header = () => {
           </nav>
           
           <button
-            className="md:hidden text-foreground p-2"
+            className={`md:hidden p-2 ${
+              isScrolled ? 'text-foreground' : 'text-white'
+            }`}
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
