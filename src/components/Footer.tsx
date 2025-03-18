@@ -67,11 +67,11 @@ const Footer = () => {
               Ready to collaborate? Let's get in touch!
             </p>
             <a 
-              href="mailto:hisham@example.com" 
+              href="mailto:hisham.mohamaf@gmail.com" 
               className="inline-flex items-center text-primary hover:underline"
             >
               <Mail size={18} className="mr-2" />
-              hisham@example.com
+              hisham.mohamaf@gmail.com
             </a>
           </div>
         </div>
