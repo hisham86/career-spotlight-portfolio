@@ -100,6 +100,11 @@ body {
   @apply opacity-100 translate-y-0;
 }
 
+/* Custom animations */
+.pause-animation {
+  animation-play-state: paused;
+}
+
 /* Timeline styles */
 .timeline-connector {
   @apply absolute top-0 left-5 h-full w-[1px] bg-gradient-to-b from-primary/40 to-primary/10;

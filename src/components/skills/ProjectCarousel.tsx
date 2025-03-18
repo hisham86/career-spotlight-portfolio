@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ZoomIn } from 'lucide-react';
 
@@ -47,7 +47,7 @@ const ProjectCarousel = () => {
               <div className="relative group p-1">
                 <div className="overflow-hidden rounded-lg border border-border">
                   <div 
-                    className="h-64 bg-cover bg-center cursor-pointer relative group transform transition-all duration-500 group-hover:rotate-3 hover:scale-105"
+                    className="h-64 bg-cover bg-center cursor-pointer relative animate-[spin_15s_linear_infinite] group-hover:pause-animation"
                     style={{ backgroundImage: `url(${image})` }}
                     onClick={() => handleImageClick(image)}
                   >
@@ -66,6 +66,7 @@ const ProjectCarousel = () => {
 
       <Dialog open={!!openImage} onOpenChange={handleCloseDialog}>
         <DialogContent className="max-w-[90vw] max-h-[90vh] p-0 overflow-hidden">
+          <DialogTitle className="sr-only">Project Image</DialogTitle>
           <ScrollArea className="max-h-[85vh] w-full">
             {openImage && (
               <img 
