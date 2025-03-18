@@ -33,7 +33,7 @@ const calculateDuration = (startDate: string): string => {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Product Manager & Entrepreneur",
+    title: "Senior Product Manager",
     company: "Xsolla",
     period: `May 2022 - Present (${calculateDuration('2022-05-01')})`,
     description: "Leading product strategy and development for enterprise software solutions, driving growth and innovation through user-centric design and data-driven decision making.",
@@ -46,9 +46,9 @@ const experiences: ExperienceItem[] = [
   },
   {
     title: "Product Manager",
-    company: "Commerce Media",
-    period: `Jan 2020 - Apr 2022 (2 years 4 months)`,
-    description: "Led development of digital marketing and e-commerce solutions for global brands, focusing on user experience and performance optimization.",
+    company: "SICPA",
+    period: "Jan 2020 - Apr 2022 · 2 yrs 4 mos",
+    description: "Led development of digital solutions for global brands, focusing on user experience and performance optimization.",
     achievements: [
       "Spearheaded the redesign of a key customer-facing application, resulting in a 35% increase in user retention",
       "Defined product requirements and user stories for agile development teams",
@@ -57,27 +57,27 @@ const experiences: ExperienceItem[] = [
     ]
   },
   {
-    title: "Entrepreneur",
-    company: "Various Startups",
-    period: "Jan 2015 - Dec 2019 (5 years)",
-    description: "Founded and managed multiple technology startups, with a focus on mobile applications and digital solutions for businesses.",
+    title: "Lead Product Manager (Cloud)",
+    company: "ABSS (Asian Business Software Solutions)",
+    period: "May 2018 - Jan 2020 · 1 yr 9 mos",
+    description: "Led the cloud product strategy and development for business software solutions targeting SMEs across Asia.",
     achievements: [
-      "Successfully launched three mobile applications with over 500,000 combined downloads",
-      "Secured seed funding for two ventures, totaling $850,000",
-      "Built and led cross-functional teams of developers, designers, and marketers",
-      "Developed strategic partnerships with key industry players to accelerate growth"
+      "Led the transformation of legacy desktop software to cloud-based solutions",
+      "Managed development of cloud accounting and business management tools",
+      "Collaborated with regional teams to ensure products met diverse market needs",
+      "Implemented agile methodologies that increased development efficiency by 40%"
     ]
   },
   {
-    title: "Senior Software Engineer",
-    company: "Technology Solutions Inc.",
-    period: "Jun 2010 - Dec 2014 (4 years 7 months)",
-    description: "Developed scalable enterprise software solutions and led development teams in implementing complex technical requirements.",
+    title: "Product Manager (Search & Online Promotion)",
+    company: "11street.my (Celcom Planet Sdn Bhd)",
+    period: "Jan 2015 - Apr 2018 · 3 yrs 4 mos",
+    description: "Managed search functionality and online promotion systems for one of Malaysia's largest e-commerce platforms.",
     achievements: [
-      "Architected and implemented a microservices platform that reduced system downtime by 75%",
-      "Led a team of 8 engineers in the development of a high-performance data processing system",
-      "Improved code quality and reduced bugs by implementing comprehensive testing strategies",
-      "Mentored junior developers and introduced best practices that increased team productivity by 30%"
+      "Improved search relevancy algorithms resulting in 25% higher conversion rates",
+      "Designed and launched promotional features that increased merchant participation by 60%",
+      "Led integration of AI-powered search recommendations that improved user engagement",
+      "Collaborated with marketing teams to create data-driven promotional campaigns"
     ]
   }
 ];
@@ -153,3 +153,4 @@ const Experience = () => {
 };
 
 export default Experience;
+
