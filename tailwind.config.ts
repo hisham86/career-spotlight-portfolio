@@ -145,6 +145,10 @@ export default {
 					'100%': {
 						transform: 'rotate(360deg)'
 					}
+				},
+				'carousel': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(calc(-100% / 3))' }
 				}
 			},
 			animation: {
@@ -154,7 +158,8 @@ export default {
 				'fade-in-right': 'fade-in-right 0.6s ease-out',
 				'fade-in-left': 'fade-in-left 0.6s ease-out',
 				'scale-in': 'scale-in 0.5s ease-out',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				'carousel': 'carousel 15s linear infinite'
 			}
 		}
 	},

@@ -40,14 +40,14 @@ const ProjectCarousel = () => {
 
   return (
     <div className="relative max-w-5xl mx-auto px-10">
-      <Carousel className="w-full">
-        <CarouselContent>
+      <Carousel className="w-full" opts={{ loop: true, align: "start", dragFree: true }}>
+        <CarouselContent className="animate-carousel">
           {projectImages.map((image, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
               <div className="relative group p-1">
                 <div className="overflow-hidden rounded-lg border border-border">
                   <div 
-                    className="h-64 bg-cover bg-center cursor-pointer relative animate-[spin_15s_linear_infinite] group-hover:pause-animation"
+                    className="h-64 bg-cover bg-center cursor-pointer relative"
                     style={{ backgroundImage: `url(${image})` }}
                     onClick={() => handleImageClick(image)}
                   >
