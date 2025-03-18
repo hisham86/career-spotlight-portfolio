@@ -35,7 +35,7 @@ const experiences: ExperienceItem[] = [
   {
     title: "Senior Product Manager",
     company: "Xsolla",
-    period: `May 2022 - Present (${calculateDuration('2022-05-01')})`,
+    period: `May 2022 - Present · 2 yrs 11 mos`,
     description: "Leading product strategy and development for enterprise software solutions, driving growth and innovation through user-centric design and data-driven decision making.",
     achievements: [
       "Led the development of a new enterprise product that increased revenue by 30% in its first year",
@@ -45,7 +45,7 @@ const experiences: ExperienceItem[] = [
     ]
   },
   {
-    title: "Product Manager",
+    title: "Product Manager (Software & Hardware for Oil & Gas Team)",
     company: "SICPA",
     period: "Jan 2020 - Apr 2022 · 2 yrs 4 mos",
     description: "Led development of digital solutions for global brands, focusing on user experience and performance optimization.",
@@ -57,7 +57,7 @@ const experiences: ExperienceItem[] = [
     ]
   },
   {
-    title: "Lead Product Manager (Cloud)",
+    title: "Lead Product Manager (SaaS Cloud Accounting)",
     company: "ABSS (Asian Business Software Solutions)",
     period: "May 2018 - Jan 2020 · 1 yr 9 mos",
     description: "Led the cloud product strategy and development for business software solutions targeting SMEs across Asia.",
