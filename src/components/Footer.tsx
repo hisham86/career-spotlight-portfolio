@@ -1,5 +1,5 @@
 
-import { Github, Heart, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Coffee, Github, Heart, Linkedin, Mail, Twitter } from 'lucide-react';
 import { Button } from './ui/button';
 import GlowingCircle from './ui/GlowingCircle';
 
@@ -28,6 +28,7 @@ const Footer = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground/10 transition-colors"
+                aria-label="LinkedIn Profile"
               >
                 <Linkedin size={18} />
               </a>
@@ -36,6 +37,7 @@ const Footer = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground/10 transition-colors"
+                aria-label="GitHub Profile"
               >
                 <Github size={18} />
               </a>
@@ -44,8 +46,18 @@ const Footer = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground/10 transition-colors"
+                aria-label="Twitter Profile"
               >
                 <Twitter size={18} />
+              </a>
+              <a 
+                href="https://buymeacoffee.com/hishamcato" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-foreground/5 flex items-center justify-center hover:bg-foreground/10 transition-colors"
+                aria-label="Buy Me a Coffee"
+              >
+                <Coffee size={18} />
               </a>
             </div>
           </div>
@@ -73,6 +85,17 @@ const Footer = () => {
               <Mail size={18} className="mr-2" />
               hisham.mohamaf@gmail.com
             </a>
+            <div className="mt-4">
+              <a 
+                href="https://buymeacoffee.com/hishamcato"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-amber-500 hover:text-amber-400 transition-colors"
+              >
+                <Coffee size={18} className="mr-2" />
+                Buy me a coffee
+              </a>
+            </div>
           </div>
         </div>
         
