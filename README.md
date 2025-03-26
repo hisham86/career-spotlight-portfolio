@@ -1,69 +1,66 @@
-# Welcome to your Lovable project
 
-## Project info
+# Hisham's Portfolio
 
-**URL**: https://lovable.dev/projects/94d257b2-89f8-42ee-9e1c-a58097cf5fe7
+This is a professional portfolio website for Hisham, a Senior Product Manager with expertise in product innovation and revenue growth.
 
-## How can I edit this code?
+## Project Overview
 
-There are several ways of editing your application.
+This portfolio showcases Hisham's skills, experience, and projects in product management. The website features a modern, responsive design with interactive elements and detailed information about Hisham's professional background.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/94d257b2-89f8-42ee-9e1c-a58097cf5fe7) and start prompting.
+- **Responsive Design**: Fully responsive layout that works on desktop, tablet, and mobile devices
+- **Interactive UI**: Animated elements and smooth transitions
+- **Professional Sections**: 
+  - Home/Hero section with introduction
+  - Revenue Impact dashboard showing quantifiable achievements
+  - Experience timeline
+  - Skills showcase
+  - Project portfolio
+  - Contact information
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+This project is built with:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **React** - Frontend library for building user interfaces
+- **TypeScript** - Static typing for improved development experience
+- **Vite** - Next generation frontend tooling
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Accessible and customizable component library
+- **Recharts** - Composable charting library for data visualization
+- **Lucide React** - Beautiful, consistent icon set
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Development
 
-Follow these steps:
+To run this project locally:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone <repository-url>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd hisham-portfolio
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Connect with Hisham
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **LinkedIn**: [linkedin.com/in/hisham86](https://linkedin.com/in/hisham86)
+- **GitHub**: [github.com/hisham86](https://github.com/hisham86)
+- **Twitter**: [x.com/Solo_Level_27](https://x.com/Solo_Level_27)
+- **Email**: hisham.mohamaf@gmail.com
+- **Support**: [Buy Me a Coffee](https://buymeacoffee.com/hishamcato)
 
-**Use GitHub Codespaces**
+## License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+&copy; 2023 Hisham. All rights reserved.
 
-## What technologies are used for this project?
+---
 
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/94d257b2-89f8-42ee-9e1c-a58097cf5fe7) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Created with [Lovable](https://lovable.dev/)
