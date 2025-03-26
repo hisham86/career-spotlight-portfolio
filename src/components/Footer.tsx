@@ -96,6 +96,17 @@ const Footer = () => {
                 Buy me a coffee
               </a>
             </div>
+            <div className="mt-2">
+              <a 
+                href="https://github.com/hisham86"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-gray-500 hover:text-gray-400 transition-colors"
+              >
+                <Github size={18} className="mr-2" />
+                GitHub
+              </a>
+            </div>
           </div>
         </div>
         
