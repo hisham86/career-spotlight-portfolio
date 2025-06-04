@@ -1,0 +1,24 @@
+
+/* Glow text effect - orange theme */
+.glow-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500;
+  filter: drop-shadow(0 0 1rem rgba(249, 115, 22, 0.6));
+}
+
+/* Dark theme specific styles - orange theme */
+.dark-glow {
+  box-shadow: 0 0 15px 5px rgba(249, 115, 22, 0.2);
+}
+
+.dark-gradient-bg {
+  background: radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.15), rgba(17, 24, 39, 0) 70%);
+}
+
+.dark-gradient-border {
+  border: 1px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: 
+    linear-gradient(to right, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)),
+    linear-gradient(to right, rgba(249, 115, 22, 0.5), rgba(251, 146, 60, 0.5));
+}

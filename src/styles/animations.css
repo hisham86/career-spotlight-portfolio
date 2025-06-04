@@ -1,0 +1,56 @@
+
+/* Text animation classes */
+.reveal-text {
+  @apply opacity-0 translate-y-4 transition-all duration-500 ease-out;
+}
+
+.reveal-text.revealed {
+  @apply opacity-100 translate-y-0;
+}
+
+/* Custom animations */
+.pause-animation {
+  animation-play-state: paused;
+}
+
+/* Marquee animation */
+.marquee {
+  @apply whitespace-nowrap overflow-hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.marquee-content {
+  @apply inline-block animate-[marquee_30s_linear_infinite];
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Floating particles animation */
+.particles-container {
+  @apply fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden;
+}
+
+.particle {
+  @apply absolute rounded-full;
+  animation: float-particle 20s linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+    opacity: 0;
+  }
+}
