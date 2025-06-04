@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Copy, Download } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import html2canvas from 'html2canvas';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 interface ReceiptItem {
   id: string;
@@ -21,6 +21,7 @@ interface ReceiptProps {
 const Receipt = ({ items }: ReceiptProps) => {
   const { toast } = useToast();
   const receiptRef = useRef<HTMLDivElement>(null);
+  const [isGeneratingImage, setIsGeneratingImage] = useState(false);
   
   const currentDate = new Date().toLocaleDateString('en-US', {
     month: '2-digit',
@@ -148,6 +149,12 @@ TOTAL ITEMS: ${items.length}
     }
 
     try {
+      // Hide buttons before capturing
+      setIsGeneratingImage(true);
+      
+      // Wait a bit for the state to update and re-render
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
       const canvas = await html2canvas(receiptRef.current, {
         backgroundColor: '#ffffff',
         scale: 2, // Higher resolution
@@ -175,6 +182,9 @@ TOTAL ITEMS: ${items.length}
         description: "Unable to generate image",
         variant: "destructive",
       });
+    } finally {
+      // Show buttons again
+      setIsGeneratingImage(false);
     }
   };
 
@@ -240,27 +250,29 @@ TOTAL ITEMS: ${items.length}
           <div className="text-gray-600">If not sure, ask.</div>
         </div>
         
-        {/* Action Buttons */}
-        <div className="flex justify-center gap-2 pt-2">
-          <Button 
-            variant="default" 
-            size="sm" 
-            onClick={copyReceiptToClipboard}
-            className="flex items-center gap-2 text-xs bg-blue-600 hover:bg-blue-700 text-white border-none shadow-md"
-          >
-            <Copy size={12} />
-            COPY
-          </Button>
-          <Button 
-            variant="default" 
-            size="sm" 
-            onClick={downloadReceiptAsImage}
-            className="flex items-center gap-2 text-xs bg-green-600 hover:bg-green-700 text-white border-none shadow-md"
-          >
-            <Download size={12} />
-            DOWNLOAD
-          </Button>
-        </div>
+        {/* Action Buttons - conditionally rendered */}
+        {!isGeneratingImage && (
+          <div className="flex justify-center gap-2 pt-2">
+            <Button 
+              variant="default" 
+              size="sm" 
+              onClick={copyReceiptToClipboard}
+              className="flex items-center gap-2 text-xs bg-blue-600 hover:bg-blue-700 text-white border-none shadow-md"
+            >
+              <Copy size={12} />
+              COPY
+            </Button>
+            <Button 
+              variant="default" 
+              size="sm" 
+              onClick={downloadReceiptAsImage}
+              className="flex items-center gap-2 text-xs bg-green-600 hover:bg-green-700 text-white border-none shadow-md"
+            >
+              <Download size={12} />
+              DOWNLOAD
+            </Button>
+          </div>
+        )}
       </div>
       
       {/* Perforated bottom border */}
