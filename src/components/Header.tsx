@@ -1,8 +1,16 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Download, FileText } from 'lucide-react';
+import { Menu, X, Download, FileText, ChevronDown } from 'lucide-react';
 import AnimatedLogo from './ui/AnimatedLogo';
 import { Button } from './ui/button';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from './ui/navigation-menu';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,7 +42,12 @@ const Header = () => {
     { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+  ];
+
+  const toolsLinks = [
+    { name: 'Download Samples', href: '#', action: handleOpenWorkSamples },
+    { name: 'My CV', href: '#', action: handleDownloadCV },
+    { name: 'Buy Me a Coffee', href: 'https://buymeacoffee.com/hishamcato' },
   ];
   
   return (
@@ -58,45 +71,65 @@ const Header = () => {
           </a>
           
           <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  isScrolled 
-                    ? 'text-gray-900 hover:text-primary' 
-                    : 'text-white/80 hover:text-white'
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
-            <Button
-              onClick={handleOpenWorkSamples}
-              variant="outline"
-              size="sm"
-              className={`border-primary/40 hover:bg-primary/10 flex items-center gap-2 ${
-                isScrolled 
-                  ? 'bg-white/50 text-gray-900' 
-                  : 'text-primary'
-              }`}
-            >
-              <Download size={16} />
-              Download Samples
-            </Button>
-            <Button
-              onClick={handleDownloadCV}
-              variant="outline"
-              size="sm"
-              className={`border-orange-500/40 hover:bg-orange-500/10 flex items-center gap-2 ${
-                isScrolled 
-                  ? 'bg-white/50 text-gray-900' 
-                  : 'text-orange-400'
-              }`}
-            >
-              <FileText size={16} />
-              My CV
-            </Button>
+            <NavigationMenu>
+              <NavigationMenuList>
+                {navLinks.map((link) => (
+                  <NavigationMenuItem key={link.name}>
+                    <NavigationMenuLink
+                      href={link.href}
+                      className={`text-sm font-medium transition-colors duration-200 px-4 py-2 ${
+                        isScrolled 
+                          ? 'text-gray-900 hover:text-primary' 
+                          : 'text-white/80 hover:text-white'
+                      }`}
+                    >
+                      {link.name}
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+                
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={`text-sm font-medium transition-colors duration-200 bg-transparent ${
+                      isScrolled 
+                        ? 'text-gray-900 hover:text-primary' 
+                        : 'text-white/80 hover:text-white'
+                    }`}
+                  >
+                    Tools
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="w-48 p-2">
+                      {toolsLinks.map((tool) => (
+                        <NavigationMenuLink
+                          key={tool.name}
+                          href={tool.href}
+                          onClick={tool.action}
+                          target={tool.href.startsWith('http') ? '_blank' : undefined}
+                          className="block px-3 py-2 text-sm text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+                        >
+                          {tool.name}
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    href="#contact"
+                    className={`text-sm font-medium transition-colors duration-200 px-4 py-2 ${
+                      isScrolled 
+                        ? 'text-gray-900 hover:text-primary' 
+                        : 'text-white/80 hover:text-white'
+                    }`}
+                  >
+                    Contact
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            
             <a
               href="#contact"
               className="btn-primary text-sm"
@@ -130,28 +163,33 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
-            <Button
-              onClick={() => {
-                handleOpenWorkSamples();
-                setIsMobileMenuOpen(false);
-              }}
-              variant="outline"
-              className="border-primary/40 text-gray-900 hover:bg-primary/10 flex items-center gap-2 justify-center"
+            
+            <div className="border-t pt-4">
+              <h3 className="text-gray-600 font-medium mb-2">Tools</h3>
+              {toolsLinks.map((tool) => (
+                <a
+                  key={tool.name}
+                  href={tool.href}
+                  onClick={() => {
+                    if (tool.action) tool.action();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  target={tool.href.startsWith('http') ? '_blank' : undefined}
+                  className="block text-gray-700 hover:text-primary py-1 transition-colors duration-200 ml-4"
+                >
+                  {tool.name}
+                </a>
+              ))}
+            </div>
+            
+            <a
+              href="#contact"
+              className="text-gray-900 hover:text-primary py-2 transition-colors duration-200"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              <Download size={16} />
-              Download My Work Samples
-            </Button>
-            <Button
-              onClick={() => {
-                handleDownloadCV();
-                setIsMobileMenuOpen(false);
-              }}
-              variant="outline"
-              className="border-orange-500/40 text-gray-900 hover:bg-orange-500/10 flex items-center gap-2 justify-center"
-            >
-              <FileText size={16} />
-              My Updated CV
-            </Button>
+              Contact
+            </a>
+            
             <a
               href="#contact"
               className="btn-primary inline-flex justify-center"
