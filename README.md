@@ -59,7 +59,7 @@ npm run dev
 ## Tools
 
 ### Grocery List Generator
-Access the grocery list tool at `/tools/grocery-list`. Features include:
+Access the grocery list tool at `/grocery`. Features include:
 - Multi-language food database with 9 supported languages
 - Categorized food items (Fruits, Vegetables, Protein & Meat, Dairy & Cheese, Grains & Bread, Beverages, Prepared Foods, Sweets & Desserts)
 - Unit specification for quantities
