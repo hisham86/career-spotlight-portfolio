@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -35,55 +34,55 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
       title: 'Grocery List Generator',
       search: 'Find emojis by name or description...',
       addSelected: 'Add Selected',
-      placeholder: 'e.g. 2 kg, 1 bunch'
+      placeholder: '2 kg, 1 bunch'
     },
     ms: {
       title: 'Penjana Senarai Runcit',
       search: 'Cari emoji mengikut nama atau penerangan...',
       addSelected: 'Tambah Yang Dipilih',
-      placeholder: 'cth. 2 kg, 1 ikat'
+      placeholder: '2 kg, 1 ikat'
     },
     zh: {
       title: '购物清单生成器',
       search: '按名称或描述查找表情符号...',
       addSelected: '添加所选',
-      placeholder: '例如：2公斤，1束'
+      placeholder: '2公斤，1束'
     },
     ko: {
       title: '장보기 목록 생성기',
       search: '이름이나 설명으로 이모지 찾기...',
       addSelected: '선택한 항목 추가',
-      placeholder: '예: 2kg, 1다발'
+      placeholder: '2kg, 1다발'
     },
     ja: {
       title: '買い物リスト生成器',
       search: '名前や説明で絵文字を検索...',
       addSelected: '選択したものを追加',
-      placeholder: '例：2kg、1束'
+      placeholder: '2kg、1束'
     },
     ar: {
       title: 'مولد قائمة البقالة',
       search: 'البحث عن الرموز التعبيرية بالاسم أو الوصف...',
       addSelected: 'إضافة المحدد',
-      placeholder: 'مثال: 2 كيلو، 1 حزمة'
+      placeholder: '2 كيلو، 1 حزمة'
     },
     it: {
       title: 'Generatore Lista Spesa',
       search: 'Trova emoji per nome o descrizione...',
       addSelected: 'Aggiungi Selezionati',
-      placeholder: 'es. 2 kg, 1 mazzo'
+      placeholder: '2 kg, 1 mazzo'
     },
     es: {
       title: 'Generador de Lista de Compras',
       search: 'Buscar emojis por nombre o descripción...',
       addSelected: 'Agregar Seleccionados',
-      placeholder: 'ej. 2 kg, 1 manojo'
+      placeholder: '2 kg, 1 manojo'
     },
     ru: {
       title: 'Генератор Списка Покупок',
       search: 'Найти эмодзи по названию или описанию...',
       addSelected: 'Добавить Выбранные',
-      placeholder: 'напр. 2 кг, 1 пучок'
+      placeholder: '2 кг, 1 пучок'
     }
   };
 
@@ -113,7 +112,7 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
       { emoji: '🫘', names: { en: 'Beans', ms: 'Kacang', zh: '豆类', ko: '콩', ja: '豆', ar: 'فاصولياء', it: 'Fagioli', es: 'Frijoles', ru: 'Бобы' } },
       { emoji: '🫜', names: { en: 'Beans', ms: 'Kacang', zh: '豆类', ko: '콩', ja: '豆', ar: 'فاصولياء', it: 'Fagioli', es: 'Frijoles', ru: 'Бобы' } },
       { emoji: '🫛', names: { en: 'Bell Pepper', ms: 'Lada Benggala', zh: '甜椒', ko: '피망', ja: 'ピーマン', ar: 'فلفل حلو', it: 'Peperone', es: 'Pimiento', ru: 'Болгарский Перец' } },
-      { emoji: '🫑', names: { en: 'Bell Pepper', ms: 'Lada Benggala', zh: '甜椒', ko: '피망', ja: 'ピーマン', ar: 'فلفل حلو', it: 'Peperone', es: 'Pimiento', ru: 'Болгарский Перец' } },
+      { emoji: '🫑', names: { en: 'Bell Pepper', ms: 'Lada Benggala', zh: '甜椒', ko: '피망', ja: 'ピーマン', ar:: 'فلفل حلو', it: 'Peperone', es: 'Pimiento', ru: 'Болгарский Перец' } },
       { emoji: '🥦', names: { en: 'Broccoli', ms: 'Brokoli', zh: '西兰花', ko: '브로콜리', ja: 'ブロッコリー', ar: 'بروكلي', it: 'Broccoli', es: 'Brócoli', ru: 'Брокколи' } },
       { emoji: '🥕', names: { en: 'Carrot', ms: 'Lobak Merah', zh: '胡萝卜', ko: '당근', ja: '人参', ar: 'جزر', it: 'Carota', es: 'Zanahoria', ru: 'Морковь' } },
       { emoji: '🌰', names: { en: 'Chestnut', ms: 'Buah Berangan', zh: '栗子', ko: '밤', ja: '栗', ar: 'كستناء', it: 'Castagna', es: 'Castaña', ru: 'Каштан' } },
@@ -165,10 +164,10 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
       { emoji: '🍻', names: { en: 'Beer Mugs', ms: 'Mug Bir', zh: '啤酒杯', ko: '맥주잔', ja: 'ビールジョッキ', ar: 'أكواب البيرة', it: 'Boccali di Birra', es: 'Jarras de Cerveza', ru: 'Пивные Кружки' } },
       { emoji: '🧋', names: { en: 'Bubble Tea', ms: 'Teh Bubble', zh: '珍珠奶茶', ko: '버블티', ja: 'タピオカティー', ar: 'شاي الفقاعات', it: 'Bubble Tea', es: 'Té de Burbujas', ru: 'Пузырьковый Чай' } },
       { emoji: '🥂', names: { en: 'Champagne', ms: 'Champagne', zh: '香槟', ko: '샴페イン', ja: 'シャンパン', ar: 'شامبانيا', it: 'Champagne', es: 'Champán', ru: 'Шампанское' } },
-      { emoji: '🍾', names: { en: 'Champagne Bottle', ms: 'Botol Champagne', zh: '香槟瓶', ko: '샴페인 병', ja: 'シャンパンボトル', ar: 'زجاجة شامبانيا', it: 'Bottiglia di Champagne', es: 'Botella de Champán', ru: 'Бутылка Шампанского' } },
+      { emoji: '🍾', names: { en: 'Champagne Bottle', ms: 'Botol Champagne', zh: '香槟瓶', ko: '샴페イン 병', ja: 'シャンパンボトル', ar: 'زجاجة شامبانيا', it: 'Bottiglia di Champagne', es: 'Botella de Champán', ru: 'Бутылка Шампанского' } },
       { emoji: '☕️', names: { en: 'Coffee', ms: 'Kopi', zh: '咖啡', ko: '커피', ja: 'コーヒー', ar: 'قهوة', it: 'Caffè', es: 'Café', ru: 'Кофе' } },
       { emoji: '🧃', names: { en: 'Juice Box', ms: 'Kotak Jus', zh: '果汁盒', ko: '주스박스', ja: 'ジュースボックス', ar: 'علبة عصير', it: 'Brick di Succo', es: 'Caja de Jugo', ru: 'Коробка Сока' } },
-      { emoji: '🧉', names: { en: 'Mate', ms: 'Mate', zh: '马黛茶', ko: '마테차', ja: 'マテ茶', ar: 'مشروب المتة', it: 'Mate', es: 'Mate', ru: 'Мате' } },
+      { emoji: '🧉', names: { en: 'Mate', ms: 'Mate', zh: '马黛茶', ko: '马테차', ja: 'マテ茶', ar: 'مشروب المتة', it: 'Mate', es: 'Mate', ru: 'Мате' } },
       { emoji: '🥤', names: { en: 'Soft Drink', ms: 'Minuman Ringan', zh: '软饮料', ko: '탄산음료', ja: 'ソフトドリンク', ar: 'مشروب غازي', it: 'Bibita', es: 'Refresco', ru: 'Газировка' } },
       { emoji: '🍵', names: { en: 'Tea', ms: 'Teh', zh: '茶', ko: '차', ja: '茶', ar: 'شاي', it: 'Tè', es: 'Té', ru: 'Чай' } },
       { emoji: '🍹', names: { en: 'Tropical Drink', ms: 'Minuman Tropika', zh: '热带饮料', ko: '트로피컬 음료', ja: 'トロピカルドリンク', ar: 'مشروب استوائي', it: 'Drink Tropicale', es: 'Bebida Tropical', ru: 'Тропический Напиток' } },
