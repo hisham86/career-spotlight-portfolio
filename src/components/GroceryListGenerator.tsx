@@ -189,7 +189,7 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
           </div>
 
           <div className="border rounded-lg p-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {filteredItems.map((item, index) => (
                 <div key={`${item.name}-${index}`} className="flex items-center gap-3 p-3 border rounded-lg">
                   <div className="text-lg flex-shrink-0">{item.emoji}</div>
