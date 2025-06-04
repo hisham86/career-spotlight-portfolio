@@ -70,7 +70,7 @@ const Receipt = ({ items }: ReceiptProps) => {
           <div>TOTAL ITEMS: {items.length}</div>
           <div>COMPLETED: {items.filter(item => item.completed).length}</div>
           <div>*********************</div>
-          <div className="text-gray-500">Thank you for shopping!</div>
+          <div className="text-gray-500">If not sure, ask.</div>
         </div>
       </div>
     </Card>
