@@ -41,8 +41,15 @@ const Receipt = ({ items }: ReceiptProps) => {
   }
 
   return (
-    <Card className="mb-6 bg-white shadow-sm max-w-xs mx-auto" style={{ fontFamily: 'monospace' }}>
-      <div className="p-4 space-y-2 text-black">
+    <Card className="mb-6 bg-white shadow-sm max-w-xs mx-auto relative overflow-hidden" style={{ fontFamily: 'monospace' }}>
+      {/* Perforated top border */}
+      <div className="absolute top-0 left-0 right-0 h-2 bg-white border-b-2 border-dotted border-gray-400" style={{
+        backgroundImage: 'radial-gradient(circle, transparent 1px, white 1px)',
+        backgroundSize: '4px 4px',
+        borderBottom: '2px dotted #9ca3af'
+      }}></div>
+      
+      <div className="p-4 pt-6 space-y-2 text-black">
         {/* Receipt Header */}
         <div className="text-center text-xs">
           <div className="font-bold">GROCERY LIST</div>
@@ -69,13 +76,20 @@ const Receipt = ({ items }: ReceiptProps) => {
         <Separator className="my-2" />
         
         {/* Receipt Footer */}
-        <div className="text-center text-xs space-y-1">
+        <div className="text-center text-xs space-y-1 pb-2">
           <div>*********************</div>
           <div>TOTAL ITEMS: {items.length}</div>
           <div>*********************</div>
           <div className="text-gray-600">If not sure, ask.</div>
         </div>
       </div>
+      
+      {/* Perforated bottom border */}
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-white border-t-2 border-dotted border-gray-400" style={{
+        backgroundImage: 'radial-gradient(circle, transparent 1px, white 1px)',
+        backgroundSize: '4px 4px',
+        borderTop: '2px dotted #9ca3af'
+      }}></div>
     </Card>
   );
 };
