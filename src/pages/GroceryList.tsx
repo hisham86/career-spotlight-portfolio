@@ -31,7 +31,7 @@ const GroceryList = () => {
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold mb-4">Grocery List</h1>
             <p className="text-muted-foreground">
-              Keep track of your grocery shopping items
+              Create & share visual grocery list.
             </p>
           </div>
 
