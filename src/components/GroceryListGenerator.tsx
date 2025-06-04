@@ -1,8 +1,8 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Plus, Search } from 'lucide-react';
 
 interface GroceryListGeneratorProps {
@@ -141,7 +141,7 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
     { emoji: '🥃', name: 'Whiskey' },
     { emoji: '🍷', name: 'Wine' },
     { emoji: '🥙', name: 'Wrap' },
-  ];
+  ].sort((a, b) => a.name.localeCompare(b.name));
 
   const filteredItems = foodItems.filter(item =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -188,32 +188,23 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
             </Button>
           </div>
 
-          <div className="border rounded-lg">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-16">Emoji</TableHead>
-                  <TableHead>Name</TableHead>
-                  <TableHead className="w-32">Unit/Quantity</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filteredItems.map((item, index) => (
-                  <TableRow key={`${item.name}-${index}`}>
-                    <TableCell className="text-lg">{item.emoji}</TableCell>
-                    <TableCell className="font-medium">{item.name}</TableCell>
-                    <TableCell>
-                      <Input
-                        placeholder="e.g. 2 kg, 1 bunch"
-                        value={units[item.name] || ''}
-                        onChange={(e) => handleUnitChange(item.name, e.target.value)}
-                        className="h-8"
-                      />
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+          <div className="border rounded-lg p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filteredItems.map((item, index) => (
+                <div key={`${item.name}-${index}`} className="flex items-center gap-3 p-3 border rounded-lg">
+                  <div className="text-lg flex-shrink-0">{item.emoji}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium text-sm truncate">{item.name}</div>
+                    <Input
+                      placeholder="e.g. 2 kg, 1 bunch"
+                      value={units[item.name] || ''}
+                      onChange={(e) => handleUnitChange(item.name, e.target.value)}
+                      className="h-8 mt-1"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </CardContent>
