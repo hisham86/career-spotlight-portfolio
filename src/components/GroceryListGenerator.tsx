@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -189,7 +188,7 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
             </Button>
           </div>
 
-          <div className="max-h-96 overflow-y-auto border rounded-lg">
+          <div className="border rounded-lg">
             <Table>
               <TableHeader>
                 <TableRow>
