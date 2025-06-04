@@ -1,4 +1,3 @@
-
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
@@ -6,6 +5,7 @@ interface ReceiptItem {
   id: string;
   name: string;
   emoji?: string;
+  unit?: string;
   completed: boolean;
 }
 
@@ -15,8 +15,8 @@ interface ReceiptProps {
 
 const Receipt = ({ items }: ReceiptProps) => {
   const currentDate = new Date().toLocaleDateString('en-US', {
-    month: '2-digit',
     day: '2-digit',
+    month: 'long',
     year: 'numeric',
   });
   
