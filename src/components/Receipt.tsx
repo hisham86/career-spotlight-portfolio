@@ -19,10 +19,14 @@ const Receipt = ({ items }: ReceiptProps) => {
     year: 'numeric',
   });
   
+  const dayName = new Date().toLocaleDateString('en-US', {
+    weekday: 'short',
+  }).toUpperCase();
+  
   const currentTime = new Date().toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
-    hour12: false,
+    hour12: true,
   });
 
   if (items.length === 0) {
@@ -43,7 +47,7 @@ const Receipt = ({ items }: ReceiptProps) => {
         <div className="text-center text-xs">
           <div className="font-bold">GROCERY LIST</div>
           <div>*********************</div>
-          <div>{currentDate} {currentTime}</div>
+          <div>{currentDate} {dayName} {currentTime}</div>
         </div>
         
         <Separator className="my-2" />
