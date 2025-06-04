@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GroceryListGenerator from '@/components/GroceryListGenerator';
+import Receipt from '@/components/Receipt';
 
 interface GroceryItem {
   id: string;
@@ -35,6 +36,7 @@ const GroceryList = () => {
             </p>
           </div>
 
+          <Receipt items={items} />
           <GroceryListGenerator onAddItems={addMultipleItems} />
         </div>
       </main>
