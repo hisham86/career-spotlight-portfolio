@@ -38,14 +38,14 @@ const ToolsDropdown = ({ isScrolled }: ToolsDropdownProps) => {
         Tools
       </NavigationMenuTrigger>
       <NavigationMenuContent>
-        <div className="w-48 p-2">
+        <div className="w-48 p-2 bg-white border border-gray-200 shadow-lg rounded-md z-50">
           {toolsLinks.map((tool) => (
             <NavigationMenuLink
               key={tool.name}
               href={tool.href}
               onClick={tool.action}
               target={tool.href.startsWith('http') ? '_blank' : undefined}
-              className="block px-3 py-2 text-sm text-gray-900 hover:bg-gray-100 rounded-md transition-colors"
+              className="block px-3 py-2 text-sm text-gray-900 hover:bg-gray-100 rounded-md transition-colors font-medium"
             >
               {tool.name}
             </NavigationMenuLink>
