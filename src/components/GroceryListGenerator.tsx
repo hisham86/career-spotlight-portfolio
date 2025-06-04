@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -19,15 +18,15 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
   const [language, setLanguage] = useState<Language>('en');
 
   const languages = {
-    en: 'English',
-    ms: 'Bahasa Malaysia',
-    zh: '中文简体',
-    ko: '한국어',
-    ja: '日本語',
-    ar: 'العربية',
-    it: 'Italiano',
-    es: 'Español',
-    ru: 'Русский'
+    en: '🇺🇸 English',
+    ms: '🇲🇾 Bahasa Malaysia',
+    zh: '🇨🇳 中文简体',
+    ko: '🇰🇷 한국어',
+    ja: '🇯🇵 日本語',
+    ar: '🇸🇦 العربية',
+    it: '🇮🇹 Italiano',
+    es: '🇪🇸 Español',
+    ru: '🇷🇺 Русский'
   };
 
   const translations = {
@@ -164,7 +163,7 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
       { emoji: '🍺', names: { en: 'Beer', ms: 'Bir', zh: '啤酒', ko: '맥주', ja: 'ビール', ar: 'بيرة', it: 'Birra', es: 'Cerveza', ru: 'Пиво' } },
       { emoji: '🍻', names: { en: 'Beer Mugs', ms: 'Mug Bir', zh: '啤酒杯', ko: '맥주잔', ja: 'ビールジョッキ', ar: 'أكواب البيرة', it: 'Boccali di Birra', es: 'Jarras de Cerveza', ru: 'Пивные Кружки' } },
       { emoji: '🧋', names: { en: 'Bubble Tea', ms: 'Teh Bubble', zh: '珍珠奶茶', ko: '버블티', ja: 'タピオカティー', ar: 'شاي الفقاعات', it: 'Bubble Tea', es: 'Té de Burbujas', ru: 'Пузырьковый Чай' } },
-      { emoji: '🥂', names: { en: 'Champagne', ms: 'Champagne', zh: '香槟', ko: '샴페인', ja: 'シャンパン', ar: 'شامبانيا', it: 'Champagne', es: 'Champán', ru: 'Шампанское' } },
+      { emoji: '🥂', names: { en: 'Champagne', ms: 'Champagne', zh: '香槟', ko: '샴페イン', ja: 'シャンパン', ar: 'شامبانيا', it: 'Champagne', es: 'Champán', ru: 'Шампанское' } },
       { emoji: '🍾', names: { en: 'Champagne Bottle', ms: 'Botol Champagne', zh: '香槟瓶', ko: '샴페인 병', ja: 'シャンパンボトル', ar: 'زجاجة شامبانيا', it: 'Bottiglia di Champagne', es: 'Botella de Champán', ru: 'Бутылка Шампанского' } },
       { emoji: '☕️', names: { en: 'Coffee', ms: 'Kopi', zh: '咖啡', ko: '커피', ja: 'コーヒー', ar: 'قهوة', it: 'Caffè', es: 'Café', ru: 'Кофе' } },
       { emoji: '🧃', names: { en: 'Juice Box', ms: 'Kotak Jus', zh: '果汁盒', ko: '주스박스', ja: 'ジュースボックス', ar: 'علبة عصير', it: 'Brick di Succo', es: 'Caja de Jugo', ru: 'Коробка Сока' } },
@@ -207,7 +206,7 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
       { emoji: '🍩', names: { en: 'Donut', ms: 'Donat', zh: '甜甜圈', ko: '도넛', ja: 'ドーナツ', ar: 'دونات', it: 'Ciambella', es: 'Dona', ru: 'Пончик' } },
       { emoji: '🥠', names: { en: 'Fortune Cookie', ms: 'Biskut Nasib', zh: '幸运饼干', ko: '포춘쿠키', ja: 'フォーチュンクッキー', ar: 'بسكويت الحظ', it: 'Biscotto della Fortuna', es: 'Galleta de la Fortuna', ru: 'Печенье Удачи' } },
       { emoji: '🍯', names: { en: 'Honey', ms: 'Madu', zh: '蜂蜜', ko: '꿀', ja: 'ハチミツ', ar: 'عسل', it: 'Miele', es: 'Miel', ru: 'Мед' } },
-      { emoji: '🍨', names: { en: 'Ice Cream', ms: 'Ais Krim', zh: '冰淇淋', ko: '아이스크림', ja: 'アイスクリーム', ar: 'آيس كريم', it: 'Gelato', es: 'Helado', ru: 'Мороженое' } },
+      { emoji: '🍨', names: { en: 'Ice Cream', ms: 'Ais Krim', zh: '冰淇淋', ko: '아이스크림', ja: 'アイスクリーム', ar: 'آيس كريم', it: 'Gelato', es: 'Helado', ru: 'Мягкое Мороженое' } },
       { emoji: '🍭', names: { en: 'Lollipop', ms: 'Lolipop', zh: '棒棒糖', ko: '막대사탕', ja: 'ロリポップ', ar: 'مصاصة', it: 'Lecca-lecca', es: 'Piruleta', ru: 'Леденец' } },
       { emoji: '🥮', names: { en: 'Moon Cake', ms: 'Kek Bulan', zh: '月饼', ko: '월병', ja: '月餅', ar: 'كعكة القمر', it: 'Torta della Luna', es: 'Pastel de Luna', ru: 'Лунный Пирог' } },
       { emoji: '🥞', names: { en: 'Pancakes', ms: 'Penkek', zh: '煎饼', ko: '팬케이크', ja: 'パンケーキ', ar: 'فطائر', it: 'Pancake', es: 'Panqueques', ru: 'Блины' } },
@@ -278,7 +277,7 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
             {t.title}
           </CardTitle>
           <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-[200px]">
               <Globe size={16} className="mr-2" />
               <SelectValue />
             </SelectTrigger>
