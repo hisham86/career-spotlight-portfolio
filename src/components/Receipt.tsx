@@ -38,7 +38,7 @@ const Receipt = ({ items }: ReceiptProps) => {
 
   return (
     <Card className="mb-6 bg-white shadow-sm max-w-xs mx-auto" style={{ fontFamily: 'monospace' }}>
-      <div className="p-4 space-y-2">
+      <div className="p-4 space-y-2 text-black">
         {/* Receipt Header */}
         <div className="text-center text-xs">
           <div className="font-bold">GROCERY LIST</div>
@@ -52,7 +52,7 @@ const Receipt = ({ items }: ReceiptProps) => {
         <div className="space-y-1">
           {items.map((item, index) => (
             <div key={item.id} className="text-xs flex justify-between items-center">
-              <span className={`flex-1 ${item.completed ? 'line-through text-gray-400' : ''}`}>
+              <span className={`flex-1 ${item.completed ? 'line-through text-gray-500' : ''}`}>
                 {String(index + 1).padStart(2, '0')}. {item.name}
               </span>
               <span className="ml-2">
@@ -70,7 +70,7 @@ const Receipt = ({ items }: ReceiptProps) => {
           <div>TOTAL ITEMS: {items.length}</div>
           <div>COMPLETED: {items.filter(item => item.completed).length}</div>
           <div>*********************</div>
-          <div className="text-gray-500">If not sure, ask.</div>
+          <div className="text-gray-600">If not sure, ask.</div>
         </div>
       </div>
     </Card>
