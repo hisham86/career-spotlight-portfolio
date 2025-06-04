@@ -4,30 +4,50 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GroceryListGenerator from '@/components/GroceryListGenerator';
 import Receipt from '@/components/Receipt';
+import { Input } from '@/components/ui/input';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface GroceryItem {
   id: string;
   name: string;
   emoji?: string;
+  unit?: string;
   completed: boolean;
 }
 
 interface ItemWithEmoji {
   name: string;
   emoji?: string;
+  unit?: string;
 }
 
 const GroceryList = () => {
   const [items, setItems] = useState<GroceryItem[]>([]);
+  const [quickInput, setQuickInput] = useState('');
 
   const addMultipleItems = (itemsWithEmoji: ItemWithEmoji[]) => {
     const newItems: GroceryItem[] = itemsWithEmoji.map((item, index) => ({
       id: (Date.now() + index).toString(),
       name: item.name.trim(),
       emoji: item.emoji,
+      unit: item.unit,
       completed: false
     }));
     setItems([...items, ...newItems]);
+  };
+
+  const handleQuickAdd = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && quickInput.trim()) {
+      const newItem: GroceryItem = {
+        id: Date.now().toString(),
+        name: quickInput.trim(),
+        emoji: '📦',
+        unit: '',
+        completed: false
+      };
+      setItems([...items, newItem]);
+      setQuickInput('');
+    }
   };
 
   return (
@@ -44,6 +64,19 @@ const GroceryList = () => {
           </div>
 
           <Receipt items={items} />
+          
+          <Card className="mb-6">
+            <CardContent className="p-4">
+              <Input
+                placeholder="Type an item and press Enter to add..."
+                value={quickInput}
+                onChange={(e) => setQuickInput(e.target.value)}
+                onKeyDown={handleQuickAdd}
+                className="w-full"
+              />
+            </CardContent>
+          </Card>
+
           <GroceryListGenerator onAddItems={addMultipleItems} />
         </div>
       </main>
