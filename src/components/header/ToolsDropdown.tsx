@@ -37,8 +37,8 @@ const ToolsDropdown = ({ isScrolled }: ToolsDropdownProps) => {
       >
         Tools
       </NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <div className="w-48 p-2 bg-white border border-gray-200 shadow-lg rounded-md z-50">
+      <NavigationMenuContent className="left-0 top-full mt-0">
+        <div className="w-48 p-2 bg-white border border-gray-200 shadow-lg rounded-md">
           {toolsLinks.map((tool) => (
             <NavigationMenuLink
               key={tool.name}
