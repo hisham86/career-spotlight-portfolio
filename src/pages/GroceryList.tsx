@@ -8,16 +8,23 @@ import Receipt from '@/components/Receipt';
 interface GroceryItem {
   id: string;
   name: string;
+  emoji?: string;
   completed: boolean;
+}
+
+interface ItemWithEmoji {
+  name: string;
+  emoji?: string;
 }
 
 const GroceryList = () => {
   const [items, setItems] = useState<GroceryItem[]>([]);
 
-  const addMultipleItems = (itemNames: string[]) => {
-    const newItems: GroceryItem[] = itemNames.map((name, index) => ({
+  const addMultipleItems = (itemsWithEmoji: ItemWithEmoji[]) => {
+    const newItems: GroceryItem[] = itemsWithEmoji.map((item, index) => ({
       id: (Date.now() + index).toString(),
-      name: name.trim(),
+      name: item.name.trim(),
+      emoji: item.emoji,
       completed: false
     }));
     setItems([...items, ...newItems]);

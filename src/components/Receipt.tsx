@@ -5,6 +5,7 @@ import { Separator } from '@/components/ui/separator';
 interface ReceiptItem {
   id: string;
   name: string;
+  emoji?: string;
   completed: boolean;
 }
 
@@ -64,7 +65,7 @@ const Receipt = ({ items }: ReceiptProps) => {
           {items.map((item, index) => (
             <div key={item.id} className="text-xs flex justify-between items-center">
               <span className={`flex-1 ${item.completed ? 'line-through text-gray-500' : ''}`}>
-                {String(index + 1).padStart(2, '0')}. {item.name}
+                {String(index + 1).padStart(2, '0')}. {item.emoji || '📦'} {item.name}
               </span>
               <span className="ml-2">
                 {item.completed ? '✓' : '○'}

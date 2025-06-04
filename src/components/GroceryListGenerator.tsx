@@ -6,8 +6,13 @@ import { Separator } from '@/components/ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Plus, Search, Globe } from 'lucide-react';
 
+interface ItemWithEmoji {
+  name: string;
+  emoji?: string;
+}
+
 interface GroceryListGeneratorProps {
-  onAddItems: (items: string[]) => void;
+  onAddItems: (items: ItemWithEmoji[]) => void;
 }
 
 type Language = 'en' | 'ms' | 'zh' | 'ko' | 'ja' | 'ar' | 'it' | 'es' | 'ru';
@@ -218,130 +223,4 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
     ],
     'Other': [
       { emoji: '🥣', names: { en: 'Bowl', ms: 'Mangkuk', zh: '碗', ko: '그릇', ja: 'ボウル', ar: 'وعاء', it: 'Ciotola', es: 'Tazón', ru: 'Миска' } },
-      { emoji: '🥫', names: { en: 'Canned Food', ms: 'Makanan Tin', zh: '罐头食品', ko: '통조림', ja: '缶詰', ar: 'طعام معلب', it: 'Cibo in Scatola', es: 'Comida Enlatada', ru: 'Консервы' } },
-      { emoji: '🥢', names: { en: 'Chopsticks', ms: 'Penyepit', zh: '筷子', ko: '젓가락', ja: '箸', ar: 'عيدان الطعام', it: 'Bacchette', es: 'Palillos', ru: 'Палочки' } },
-      { emoji: '🍴', names: { en: 'Fork and Knife', ms: 'Garpu dan Pisau', zh: '刀叉', ko: '포크와 나이프', ja: 'フォークとナイフ', ar: 'شوكة وسكين', it: 'Forchetta e Coltello', es: 'Tenedor y Cuchillo', ru: 'Вилка и Нож' } },
-      { emoji: '🧊', names: { en: 'Ice', ms: 'Ais', zh: '冰块', ko: '얼음', ja: '氷', ar: 'ثلج', it: 'Ghiaccio', es: 'Hielo', ru: 'Лед' } },
-      { emoji: '🫙', names: { en: 'Jar', ms: 'Balang', zh: '罐子', ko: '항아리', ja: '瓶', ar: 'برطمان', it: 'Barattolo', es: 'Frasco', ru: 'Банка' } },
-      { emoji: '🦪', names: { en: 'Oyster', ms: 'Tiram', zh: '牡蛎', ko: '굴', ja: '牡蠣', ar: 'محار', it: 'Ostrica', es: 'Ostra', ru: 'Устрица' } },
-      { emoji: '🍽', names: { en: 'Plate', ms: 'Pinggan', zh: '盘子', ko: '접시', ja: '皿', ar: 'طبق', it: 'Piatto', es: 'Plato', ru: 'Тарелка' } },
-      { emoji: '🫗', names: { en: 'Pouring Liquid', ms: 'Menuang Cecair', zh: '倾倒液体', ko: '액체 붓기', ja: '液体を注ぐ', ar: 'سكب السائل', it: 'Versare Liquido', es: 'Verter Líquido', ru: 'Наливание Жидкости' } },
-      { emoji: '🍶', names: { en: 'Sake', ms: 'Sake', zh: '清酒', ko: '사케', ja: '日本酒', ar: 'ساكي', it: 'Sake', es: 'Sake', ru: 'Саке' } },
-      { emoji: '🧂', names: { en: 'Salt', ms: 'Garam', zh: '盐', ko: '소금', ja: '塩', ar: 'ملح', it: 'Sale', es: 'Sal', ru: 'Соль' } },
-      { emoji: '🥄', names: { en: 'Spoon', ms: 'Sudu', zh: '勺子', ko: '숟가락', ja: 'スプーン', ar: 'ملعقة', it: 'Cucchiaio', es: 'Cuchara', ru: 'Ложка' } },
-      { emoji: '🫖', names: { en: 'Teapot', ms: 'Teko', zh: '茶壶', ko: '찻주전자', ja: '急須', ar: 'إبريق الشاي', it: 'Teiera', es: 'Tetera', ru: 'Чайник' } },
-    ],
-  };
-
-  const getFilteredCategories = () => {
-    if (!searchTerm) return foodCategories;
-    
-    const filtered: Partial<typeof foodCategories> = {};
-    Object.entries(foodCategories).forEach(([category, items]) => {
-      const filteredItems = items.filter(item =>
-        item.names[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.names.en.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.emoji.includes(searchTerm)
-      );
-      if (filteredItems.length > 0) {
-        filtered[category as keyof typeof foodCategories] = filteredItems;
-      }
-    });
-    return filtered;
-  };
-
-  const handleUnitChange = (itemName: string, unit: string) => {
-    setUnits(prev => ({ ...prev, [itemName]: unit }));
-  };
-
-  const handleAddSelected = () => {
-    const itemsToAdd = Object.entries(units)
-      .filter(([_, unit]) => unit.trim() !== '')
-      .map(([name, unit]) => `${unit} ${name}`);
-    
-    if (itemsToAdd.length > 0) {
-      onAddItems(itemsToAdd);
-      setUnits({});
-    }
-  };
-
-  const filteredCategories = getFilteredCategories();
-  const t = translations[language];
-
-  return (
-    <Card className="mb-6">
-      <CardHeader>
-        <div className="flex items-center justify-between">
-          <CardTitle className="flex items-center gap-2">
-            <Plus size={20} />
-            {t.title}
-          </CardTitle>
-          <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
-            <SelectTrigger className="w-[200px]">
-              <Globe size={16} className="mr-2" />
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {Object.entries(languages).map(([code, name]) => (
-                <SelectItem key={code} value={code}>
-                  {name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          <div className="flex gap-2">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={16} />
-              <Input
-                placeholder={t.search}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <Button onClick={handleAddSelected} disabled={Object.values(units).every(unit => !unit.trim())}>
-              {t.addSelected}
-            </Button>
-          </div>
-
-          <div className="space-y-6">
-            {Object.entries(filteredCategories).map(([category, items]) => (
-              <div key={category}>
-                <div className="relative flex items-center justify-center mb-4">
-                  <Separator className="flex-1" />
-                  <div className="px-4 bg-background text-sm font-medium text-muted-foreground">
-                    {category}
-                  </div>
-                  <Separator className="flex-1" />
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {items.map((item, index) => (
-                    <div key={`${item.names.en}-${index}`} className="flex items-center gap-3 p-3">
-                      <div className="text-lg flex-shrink-0">{item.emoji}</div>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-medium text-sm truncate">{item.names[language]}</div>
-                        <Input
-                          placeholder={t.placeholder}
-                          value={units[item.names[language]] || ''}
-                          onChange={(e) => handleUnitChange(item.names[language], e.target.value)}
-                          className="h-8 mt-1"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
-};
-
-export default GroceryListGenerator;
+      { emoji: '🥫', names: { en: 'Canned Food', ms: 'Makanan Tin', zh: '罐头食品', ko: '통조림', ja: '缶詰', ar: 'طعام معلب', it: 'Cibo in Scatola', es: 'Comida Enlatada', ru:
