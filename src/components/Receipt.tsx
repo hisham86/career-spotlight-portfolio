@@ -1,9 +1,10 @@
-
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { Copy } from 'lucide-react';
+import { Copy, Download } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
+import html2canvas from 'html2canvas';
+import { useRef } from 'react';
 
 interface ReceiptItem {
   id: string;
@@ -19,6 +20,7 @@ interface ReceiptProps {
 
 const Receipt = ({ items }: ReceiptProps) => {
   const { toast } = useToast();
+  const receiptRef = useRef<HTMLDivElement>(null);
   
   const currentDate = new Date().toLocaleDateString('en-US', {
     month: '2-digit',
@@ -127,6 +129,55 @@ TOTAL ITEMS: ${items.length}
     }
   };
 
+  const downloadReceiptAsImage = async () => {
+    if (!receiptRef.current) {
+      toast({
+        title: "Download failed",
+        description: "Unable to capture receipt",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (items.length === 0) {
+      toast({
+        title: "Empty list",
+        description: "Add some items to your grocery list first!",
+      });
+      return;
+    }
+
+    try {
+      const canvas = await html2canvas(receiptRef.current, {
+        backgroundColor: '#ffffff',
+        scale: 2, // Higher resolution
+        useCORS: true,
+      });
+      
+      // Convert to JPEG
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+      
+      // Create download link
+      const link = document.createElement('a');
+      link.download = `grocery-list-${new Date().toISOString().split('T')[0]}.jpg`;
+      link.href = dataUrl;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      toast({
+        title: "Downloaded!",
+        description: "Grocery list image saved to your device",
+      });
+    } catch (err) {
+      toast({
+        title: "Download failed",
+        description: "Unable to generate image",
+        variant: "destructive",
+      });
+    }
+  };
+
   if (items.length === 0) {
     return (
       <Card className="mb-6 p-6 bg-white shadow-sm border-dashed border-2 border-gray-200">
@@ -147,7 +198,7 @@ TOTAL ITEMS: ${items.length}
         borderBottom: '2px dotted #9ca3af'
       }}></div>
       
-      <div className="p-4 pt-6 space-y-2 text-black">
+      <div ref={receiptRef} className="p-4 pt-6 space-y-2 text-black">
         {/* Receipt Header */}
         <div className="text-center text-xs">
           <div className="font-bold">GROCERY LIST</div>
@@ -189,8 +240,8 @@ TOTAL ITEMS: ${items.length}
           <div className="text-gray-600">If not sure, ask.</div>
         </div>
         
-        {/* Copy Button */}
-        <div className="flex justify-center pt-2">
+        {/* Action Buttons */}
+        <div className="flex justify-center gap-2 pt-2">
           <Button 
             variant="default" 
             size="sm" 
@@ -199,6 +250,15 @@ TOTAL ITEMS: ${items.length}
           >
             <Copy size={12} />
             COPY
+          </Button>
+          <Button 
+            variant="default" 
+            size="sm" 
+            onClick={downloadReceiptAsImage}
+            className="flex items-center gap-2 text-xs bg-green-600 hover:bg-green-700 text-white border-none shadow-md"
+          >
+            <Download size={12} />
+            DOWNLOAD
           </Button>
         </div>
       </div>
