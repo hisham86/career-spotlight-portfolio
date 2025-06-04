@@ -15,20 +15,36 @@ interface GroceryItem {
 }
 
 const GroceryList = () => {
-  const [items, setItems] = useState<GroceryItem[]>([]);
+  // Demo items to show how the list looks
+  const demoItems: GroceryItem[] = [
+    { id: 'demo-1', name: 'Avocado', completed: false },
+    { id: 'demo-2', name: 'Bread', completed: true },
+    { id: 'demo-3', name: 'Milk', completed: false },
+    { id: 'demo-4', name: 'Banana', completed: false },
+  ];
+
+  const [items, setItems] = useState<GroceryItem[]>(demoItems);
+  const [isDemo, setIsDemo] = useState(true);
 
   const addMultipleItems = (itemNames: string[]) => {
+    // Clear demo items when user adds their first real items
+    if (isDemo) {
+      setIsDemo(false);
+    }
+    
     const newItems: GroceryItem[] = itemNames.map((name, index) => ({
       id: (Date.now() + index).toString(),
       name: name.trim(),
       completed: false,
-      unit: '1 biji' // Default unit
     }));
-    setItems([...items, ...newItems]);
+    
+    // If demo mode, replace demo items, otherwise append to existing items
+    setItems(isDemo ? newItems : [...items, ...newItems]);
   };
 
   const clearList = () => {
     setItems([]);
+    setIsDemo(false);
   };
 
   return (
@@ -44,9 +60,17 @@ const GroceryList = () => {
             </p>
           </div>
 
+          {isDemo && items.length > 0 && (
+            <div className="text-center mb-4">
+              <p className="text-sm text-muted-foreground bg-blue-50 border border-blue-200 rounded-lg p-3">
+                📋 This is a preview of how your grocery list will look. Add your items below to get started!
+              </p>
+            </div>
+          )}
+
           <Receipt items={items} />
           
-          {items.length > 0 && (
+          {items.length > 0 && !isDemo && (
             <div className="flex justify-center mb-6">
               <Button 
                 variant="outline" 
