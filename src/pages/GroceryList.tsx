@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GroceryListGenerator from '@/components/GroceryListGenerator';
 import Receipt from '@/components/Receipt';
+import { Button } from '@/components/ui/button';
+import { Trash2 } from 'lucide-react';
 
 interface GroceryItem {
   id: string;
@@ -25,6 +27,10 @@ const GroceryList = () => {
     setItems([...items, ...newItems]);
   };
 
+  const clearList = () => {
+    setItems([]);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -39,6 +45,20 @@ const GroceryList = () => {
           </div>
 
           <Receipt items={items} />
+          
+          {items.length > 0 && (
+            <div className="flex justify-center mb-6">
+              <Button 
+                variant="outline" 
+                onClick={clearList}
+                className="flex items-center gap-2"
+              >
+                <Trash2 size={16} />
+                Clear List
+              </Button>
+            </div>
+          )}
+
           <GroceryListGenerator onAddItems={addMultipleItems} />
         </div>
       </main>
