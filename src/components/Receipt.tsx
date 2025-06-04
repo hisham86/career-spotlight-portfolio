@@ -72,7 +72,6 @@ const Receipt = ({ items }: ReceiptProps) => {
         <div className="text-center text-xs space-y-1">
           <div>*********************</div>
           <div>TOTAL ITEMS: {items.length}</div>
-          <div>COMPLETED: {items.filter(item => item.completed).length}</div>
           <div>*********************</div>
           <div className="text-gray-600">If not sure, ask.</div>
         </div>
