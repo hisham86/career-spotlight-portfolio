@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import GroceryListGenerator from '@/components/GroceryListGenerator';
 
 interface GroceryItem {
   id: string;
@@ -27,6 +28,15 @@ const GroceryList = () => {
       setItems([...items, item]);
       setNewItem('');
     }
+  };
+
+  const addMultipleItems = (itemNames: string[]) => {
+    const newItems: GroceryItem[] = itemNames.map((name, index) => ({
+      id: (Date.now() + index).toString(),
+      name: name.trim(),
+      completed: false
+    }));
+    setItems([...items, ...newItems]);
   };
 
   const toggleItem = (id: string) => {
@@ -58,6 +68,8 @@ const GroceryList = () => {
             </p>
           </div>
 
+          <GroceryListGenerator onAddItems={addMultipleItems} />
+
           <Card>
             <CardHeader>
               <CardTitle>My Grocery List</CardTitle>
@@ -80,7 +92,7 @@ const GroceryList = () => {
               <div className="space-y-2">
                 {items.length === 0 ? (
                   <p className="text-center text-muted-foreground py-8">
-                    No items yet. Add your first grocery item above!
+                    No items yet. Add your first grocery item above or use the generator!
                   </p>
                 ) : (
                   items.map((item) => (
