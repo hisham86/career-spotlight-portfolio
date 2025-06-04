@@ -1,5 +1,9 @@
+
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
+import { Copy } from 'lucide-react';
+import { useToast } from '@/components/ui/use-toast';
 
 interface ReceiptItem {
   id: string;
@@ -14,6 +18,8 @@ interface ReceiptProps {
 }
 
 const Receipt = ({ items }: ReceiptProps) => {
+  const { toast } = useToast();
+  
   const currentDate = new Date().toLocaleDateString('en-US', {
     month: '2-digit',
     day: '2-digit',
@@ -80,6 +86,47 @@ const Receipt = ({ items }: ReceiptProps) => {
     return '🛒';
   };
 
+  const copyReceiptToClipboard = async () => {
+    if (items.length === 0) {
+      toast({
+        title: "Empty list",
+        description: "Add some items to your grocery list first!",
+      });
+      return;
+    }
+
+    const textReceipt = `🛒 GROCERY LIST
+*********************
+${currentDate} ${dayName} ${currentTime}
+
+${items.map((item, index) => {
+  const nameParts = item.name.split(' ');
+  const hasUnit = nameParts.length > 1 && /^\d/.test(nameParts[0]);
+  const unit = hasUnit ? nameParts[0] : '';
+  const itemName = hasUnit ? nameParts.slice(1).join(' ') : item.name;
+  
+  return `${String(index + 1).padStart(2, '0')}. ${getItemEmoji(item)} ${itemName}${unit ? ` (${unit})` : ''} ${item.completed ? '✓' : '○'}`;
+}).join('\n')}
+
+*********************
+TOTAL ITEMS: ${items.length}
+*********************`;
+
+    try {
+      await navigator.clipboard.writeText(textReceipt);
+      toast({
+        title: "Copied!",
+        description: "Grocery list copied to clipboard",
+      });
+    } catch (err) {
+      toast({
+        title: "Copy failed",
+        description: "Unable to copy to clipboard",
+        variant: "destructive",
+      });
+    }
+  };
+
   if (items.length === 0) {
     return (
       <Card className="mb-6 p-6 bg-white shadow-sm border-dashed border-2 border-gray-200">
@@ -140,6 +187,19 @@ const Receipt = ({ items }: ReceiptProps) => {
           <div>TOTAL ITEMS: {items.length}</div>
           <div>*********************</div>
           <div className="text-gray-600">If not sure, ask.</div>
+        </div>
+        
+        {/* Copy Button */}
+        <div className="flex justify-center pt-2">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            onClick={copyReceiptToClipboard}
+            className="flex items-center gap-2 text-xs"
+          >
+            <Copy size={12} />
+            COPY
+          </Button>
         </div>
       </div>
       
