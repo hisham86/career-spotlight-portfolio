@@ -6,6 +6,7 @@ interface ReceiptItem {
   id: string;
   name: string;
   completed: boolean;
+  unit?: string;
 }
 
 interface ReceiptProps {
@@ -61,10 +62,10 @@ const Receipt = ({ items }: ReceiptProps) => {
         
         {/* Items List */}
         <div className="space-y-1">
-          {items.map((item, index) => (
+          {items.map((item) => (
             <div key={item.id} className="text-xs flex justify-between items-center">
               <span className={`flex-1 ${item.completed ? 'line-through text-gray-500' : ''}`}>
-                {String(index + 1).padStart(2, '0')}. {item.name}
+                {item.name} x {item.unit || '1 biji'}
               </span>
               <span className="ml-2">
                 {item.completed ? '✓' : '○'}

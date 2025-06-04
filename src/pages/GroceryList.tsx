@@ -9,6 +9,7 @@ interface GroceryItem {
   id: string;
   name: string;
   completed: boolean;
+  unit?: string;
 }
 
 const GroceryList = () => {
@@ -18,7 +19,8 @@ const GroceryList = () => {
     const newItems: GroceryItem[] = itemNames.map((name, index) => ({
       id: (Date.now() + index).toString(),
       name: name.trim(),
-      completed: false
+      completed: false,
+      unit: '1 biji' // Default unit
     }));
     setItems([...items, ...newItems]);
   };
