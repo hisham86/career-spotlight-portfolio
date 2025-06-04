@@ -1,3 +1,4 @@
+
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
@@ -6,6 +7,7 @@ interface ReceiptItem {
   name: string;
   completed: boolean;
   unit?: string;
+  emoji?: string;
 }
 
 interface ReceiptProps {
@@ -29,8 +31,14 @@ const Receipt = ({ items }: ReceiptProps) => {
     hour12: true,
   });
 
-  const getItemEmoji = (itemName: string): string => {
-    const name = itemName.toLowerCase();
+  const getItemEmoji = (item: ReceiptItem): string => {
+    // If item already has an emoji, use it
+    if (item.emoji) {
+      return item.emoji;
+    }
+
+    // Fallback to name-based emoji detection
+    const name = item.name.toLowerCase();
     
     // Fruits
     if (name.includes('apple')) return '🍎';
@@ -108,7 +116,7 @@ const Receipt = ({ items }: ReceiptProps) => {
           {items.map((item, index) => (
             <div key={item.id} className="text-xs flex justify-between items-center">
               <span className={`flex-1 ${item.completed ? 'line-through text-gray-500' : ''}`}>
-                {String(index + 1).padStart(2, '0')}. {getItemEmoji(item.name)} {item.name}{item.unit ? ` x ${item.unit}` : ''}
+                {String(index + 1).padStart(2, '0')}. {getItemEmoji(item)} {item.name}
               </span>
               <span className="ml-2">
                 {item.completed ? '✓' : '○'}

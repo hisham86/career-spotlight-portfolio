@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Plus, Search, Globe } from 'lucide-react';
 
 interface GroceryListGeneratorProps {
-  onAddItems: (items: string[]) => void;
+  onAddItems: (items: { name: string; emoji: string }[]) => void;
 }
 
 type Language = 'en' | 'ms' | 'zh' | 'ko' | 'ja' | 'ar' | 'it' | 'es' | 'ru';
@@ -250,14 +251,26 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
     return filtered;
   };
 
-  const handleUnitChange = (itemName: string, unit: string) => {
-    setUnits(prev => ({ ...prev, [itemName]: unit }));
+  const handleUnitChange = (itemKey: string, unit: string) => {
+    setUnits(prev => ({ ...prev, [itemKey]: unit }));
   };
 
   const handleAddSelected = () => {
     const itemsToAdd = Object.entries(units)
       .filter(([_, unit]) => unit.trim() !== '')
-      .map(([name, unit]) => `${unit} ${name}`);
+      .map(([itemKey, unit]) => {
+        // Find the item in foodCategories to get both name and emoji
+        for (const category of Object.values(foodCategories)) {
+          const item = category.find(item => item.names[language] === itemKey);
+          if (item) {
+            return {
+              name: unit.trim() ? `${unit} ${item.names[language]}` : item.names[language],
+              emoji: item.emoji
+            };
+          }
+        }
+        return { name: itemKey, emoji: '🛒' }; // fallback
+      });
     
     if (itemsToAdd.length > 0) {
       onAddItems(itemsToAdd);

@@ -12,30 +12,32 @@ interface GroceryItem {
   name: string;
   completed: boolean;
   unit?: string;
+  emoji?: string;
 }
 
 const GroceryList = () => {
   // Demo items to show how the list looks
   const demoItems: GroceryItem[] = [
-    { id: 'demo-1', name: 'Avocado', completed: false },
-    { id: 'demo-2', name: 'Bread', completed: true },
-    { id: 'demo-3', name: 'Milk', completed: false },
-    { id: 'demo-4', name: 'Banana', completed: false },
+    { id: 'demo-1', name: 'Avocado', completed: false, emoji: '🥑' },
+    { id: 'demo-2', name: 'Bread', completed: true, emoji: '🍞' },
+    { id: 'demo-3', name: 'Milk', completed: false, emoji: '🥛' },
+    { id: 'demo-4', name: 'Banana', completed: false, emoji: '🍌' },
   ];
 
   const [items, setItems] = useState<GroceryItem[]>(demoItems);
   const [isDemo, setIsDemo] = useState(true);
 
-  const addMultipleItems = (itemNames: string[]) => {
+  const addMultipleItems = (itemsData: { name: string; emoji: string }[]) => {
     // Clear demo items when user adds their first real items
     if (isDemo) {
       setIsDemo(false);
     }
     
-    const newItems: GroceryItem[] = itemNames.map((name, index) => ({
+    const newItems: GroceryItem[] = itemsData.map((itemData, index) => ({
       id: (Date.now() + index).toString(),
-      name: name.trim(),
+      name: itemData.name.trim(),
       completed: false,
+      emoji: itemData.emoji,
     }));
     
     // If demo mode, replace demo items, otherwise append to existing items
