@@ -108,7 +108,7 @@ const Receipt = ({ items }: ReceiptProps) => {
           {items.map((item, index) => (
             <div key={item.id} className="text-xs flex justify-between items-center">
               <span className={`flex-1 ${item.completed ? 'line-through text-gray-500' : ''}`}>
-                {String(index + 1).padStart(2, '0')}. {getItemEmoji(item.name)} {item.name} x {item.unit || '1 biji'}
+                {String(index + 1).padStart(2, '0')}. {getItemEmoji(item.name)} {item.name}{item.unit ? ` x ${item.unit}` : ''}
               </span>
               <span className="ml-2">
                 {item.completed ? '✓' : '○'}
