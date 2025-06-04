@@ -1,4 +1,3 @@
-
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
@@ -29,6 +28,50 @@ const Receipt = ({ items }: ReceiptProps) => {
     minute: '2-digit',
     hour12: true,
   });
+
+  const getItemEmoji = (itemName: string): string => {
+    const name = itemName.toLowerCase();
+    
+    // Fruits
+    if (name.includes('apple')) return '🍎';
+    if (name.includes('banana')) return '🍌';
+    if (name.includes('orange')) return '🍊';
+    if (name.includes('avocado')) return '🥑';
+    if (name.includes('grape')) return '🍇';
+    if (name.includes('strawberry')) return '🍓';
+    if (name.includes('lemon')) return '🍋';
+    if (name.includes('watermelon')) return '🍉';
+    if (name.includes('pineapple')) return '🍍';
+    if (name.includes('peach')) return '🍑';
+    
+    // Vegetables
+    if (name.includes('carrot')) return '🥕';
+    if (name.includes('tomato')) return '🍅';
+    if (name.includes('lettuce') || name.includes('salad')) return '🥬';
+    if (name.includes('broccoli')) return '🥦';
+    if (name.includes('potato')) return '🥔';
+    if (name.includes('onion')) return '🧅';
+    if (name.includes('pepper')) return '🌶️';
+    if (name.includes('corn')) return '🌽';
+    if (name.includes('cucumber')) return '🥒';
+    if (name.includes('eggplant')) return '🍆';
+    
+    // Dairy & Protein
+    if (name.includes('milk')) return '🥛';
+    if (name.includes('cheese')) return '🧀';
+    if (name.includes('egg')) return '🥚';
+    if (name.includes('chicken')) return '🐔';
+    if (name.includes('beef')) return '🥩';
+    if (name.includes('fish')) return '🐟';
+    
+    // Grains & Bread
+    if (name.includes('bread')) return '🍞';
+    if (name.includes('rice')) return '🍚';
+    if (name.includes('pasta')) return '🍝';
+    
+    // Default grocery icon
+    return '🛒';
+  };
 
   if (items.length === 0) {
     return (
@@ -65,7 +108,7 @@ const Receipt = ({ items }: ReceiptProps) => {
           {items.map((item, index) => (
             <div key={item.id} className="text-xs flex justify-between items-center">
               <span className={`flex-1 ${item.completed ? 'line-through text-gray-500' : ''}`}>
-                {String(index + 1).padStart(2, '0')}. {item.name} x {item.unit || '1 biji'}
+                {String(index + 1).padStart(2, '0')}. {getItemEmoji(item.name)} {item.name} x {item.unit || '1 biji'}
               </span>
               <span className="ml-2">
                 {item.completed ? '✓' : '○'}
