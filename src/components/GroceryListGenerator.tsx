@@ -4,15 +4,88 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Plus, Search } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Plus, Search, Globe } from 'lucide-react';
 
 interface GroceryListGeneratorProps {
   onAddItems: (items: string[]) => void;
 }
 
+type Language = 'en' | 'ms' | 'zh' | 'ko' | 'ja' | 'ar' | 'it' | 'es' | 'ru';
+
 const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [units, setUnits] = useState<Record<string, string>>({});
+  const [language, setLanguage] = useState<Language>('en');
+
+  const languages = {
+    en: 'English',
+    ms: 'Bahasa Malaysia',
+    zh: '中文简体',
+    ko: '한국어',
+    ja: '日本語',
+    ar: 'العربية',
+    it: 'Italiano',
+    es: 'Español',
+    ru: 'Русский'
+  };
+
+  const translations = {
+    en: {
+      title: 'Grocery List Generator',
+      search: 'Find emojis by name or description...',
+      addSelected: 'Add Selected',
+      placeholder: 'e.g. 2 kg, 1 bunch'
+    },
+    ms: {
+      title: 'Penjana Senarai Runcit',
+      search: 'Cari emoji mengikut nama atau penerangan...',
+      addSelected: 'Tambah Yang Dipilih',
+      placeholder: 'cth. 2 kg, 1 ikat'
+    },
+    zh: {
+      title: '购物清单生成器',
+      search: '按名称或描述查找表情符号...',
+      addSelected: '添加所选',
+      placeholder: '例如：2公斤，1束'
+    },
+    ko: {
+      title: '장보기 목록 생성기',
+      search: '이름이나 설명으로 이모지 찾기...',
+      addSelected: '선택한 항목 추가',
+      placeholder: '예: 2kg, 1다발'
+    },
+    ja: {
+      title: '買い物リスト生成器',
+      search: '名前や説明で絵文字を検索...',
+      addSelected: '選択したものを追加',
+      placeholder: '例：2kg、1束'
+    },
+    ar: {
+      title: 'مولد قائمة البقالة',
+      search: 'البحث عن الرموز التعبيرية بالاسم أو الوصف...',
+      addSelected: 'إضافة المحدد',
+      placeholder: 'مثال: 2 كيلو، 1 حزمة'
+    },
+    it: {
+      title: 'Generatore Lista Spesa',
+      search: 'Trova emoji per nome o descrizione...',
+      addSelected: 'Aggiungi Selezionati',
+      placeholder: 'es. 2 kg, 1 mazzo'
+    },
+    es: {
+      title: 'Generador de Lista de Compras',
+      search: 'Buscar emojis por nombre o descripción...',
+      addSelected: 'Agregar Seleccionados',
+      placeholder: 'ej. 2 kg, 1 manojo'
+    },
+    ru: {
+      title: 'Генератор Списка Покупок',
+      search: 'Найти эмодзи по названию или описанию...',
+      addSelected: 'Добавить Выбранные',
+      placeholder: 'напр. 2 кг, 1 пучок'
+    }
+  };
 
   const foodCategories = {
     'Fruits': [
@@ -165,14 +238,14 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
   const getFilteredCategories = () => {
     if (!searchTerm) return foodCategories;
     
-    const filtered: typeof foodCategories = {};
+    const filtered: Partial<typeof foodCategories> = {};
     Object.entries(foodCategories).forEach(([category, items]) => {
       const filteredItems = items.filter(item =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.emoji.includes(searchTerm)
       );
       if (filteredItems.length > 0) {
-        filtered[category] = filteredItems;
+        filtered[category as keyof typeof foodCategories] = filteredItems;
       }
     });
     return filtered;
@@ -194,14 +267,30 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
   };
 
   const filteredCategories = getFilteredCategories();
+  const t = translations[language];
 
   return (
     <Card className="mb-6">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Plus size={20} />
-          Grocery List Generator
-        </CardTitle>
+        <div className="flex items-center justify-between">
+          <CardTitle className="flex items-center gap-2">
+            <Plus size={20} />
+            {t.title}
+          </CardTitle>
+          <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
+            <SelectTrigger className="w-[180px]">
+              <Globe size={16} className="mr-2" />
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {Object.entries(languages).map(([code, name]) => (
+                <SelectItem key={code} value={code}>
+                  {name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -209,14 +298,14 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={16} />
               <Input
-                placeholder="Find emojis by name or description..."
+                placeholder={t.search}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
               />
             </div>
             <Button onClick={handleAddSelected} disabled={Object.values(units).every(unit => !unit.trim())}>
-              Add Selected
+              {t.addSelected}
             </Button>
           </div>
 
@@ -233,12 +322,12 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                   {items.map((item, index) => (
-                    <div key={`${item.name}-${index}`} className="flex items-center gap-3 p-3 border rounded-lg">
+                    <div key={`${item.name}-${index}`} className="flex items-center gap-3 p-3">
                       <div className="text-lg flex-shrink-0">{item.emoji}</div>
                       <div className="flex-1 min-w-0">
                         <div className="font-medium text-sm truncate">{item.name}</div>
                         <Input
-                          placeholder="e.g. 2 kg, 1 bunch"
+                          placeholder={t.placeholder}
                           value={units[item.name] || ''}
                           onChange={(e) => handleUnitChange(item.name, e.target.value)}
                           className="h-8 mt-1"
