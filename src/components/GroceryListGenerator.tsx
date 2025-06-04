@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -188,23 +187,21 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
             </Button>
           </div>
 
-          <div className="border rounded-lg p-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {filteredItems.map((item, index) => (
-                <div key={`${item.name}-${index}`} className="flex items-center gap-3 p-3 border rounded-lg">
-                  <div className="text-lg flex-shrink-0">{item.emoji}</div>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-medium text-sm truncate">{item.name}</div>
-                    <Input
-                      placeholder="e.g. 2 kg, 1 bunch"
-                      value={units[item.name] || ''}
-                      onChange={(e) => handleUnitChange(item.name, e.target.value)}
-                      className="h-8 mt-1"
-                    />
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {filteredItems.map((item, index) => (
+              <div key={`${item.name}-${index}`} className="flex items-center gap-3 p-3 border rounded-lg">
+                <div className="text-lg flex-shrink-0">{item.emoji}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-medium text-sm truncate">{item.name}</div>
+                  <Input
+                    placeholder="e.g. 2 kg, 1 bunch"
+                    value={units[item.name] || ''}
+                    onChange={(e) => handleUnitChange(item.name, e.target.value)}
+                    className="h-8 mt-1"
+                  />
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </CardContent>
