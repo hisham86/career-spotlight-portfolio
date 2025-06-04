@@ -1,4 +1,3 @@
-
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
@@ -113,16 +112,24 @@ const Receipt = ({ items }: ReceiptProps) => {
         
         {/* Items List */}
         <div className="space-y-1">
-          {items.map((item, index) => (
-            <div key={item.id} className="text-xs flex justify-between items-center">
-              <span className={`flex-1 ${item.completed ? 'line-through text-gray-500' : ''}`}>
-                {String(index + 1).padStart(2, '0')}. {getItemEmoji(item)} {item.name}
-              </span>
-              <span className="ml-2">
-                {item.completed ? '✓' : '○'}
-              </span>
-            </div>
-          ))}
+          {items.map((item, index) => {
+            // Extract unit from item name if it exists
+            const nameParts = item.name.split(' ');
+            const hasUnit = nameParts.length > 1 && /^\d/.test(nameParts[0]);
+            const unit = hasUnit ? nameParts[0] : '';
+            const itemName = hasUnit ? nameParts.slice(1).join(' ') : item.name;
+            
+            return (
+              <div key={item.id} className="text-xs flex justify-between items-center">
+                <span className={`flex-1 ${item.completed ? 'line-through text-gray-500' : ''}`}>
+                  {String(index + 1).padStart(2, '0')}. {getItemEmoji(item)} {itemName}{unit ? ` (${unit})` : ''}
+                </span>
+                <span className="ml-2">
+                  {item.completed ? '✓' : '○'}
+                </span>
+              </div>
+            );
+          })}
         </div>
         
         <Separator className="my-2" />
