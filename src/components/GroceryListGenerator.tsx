@@ -90,24 +90,26 @@ const GroceryListGenerator = ({ onAddItems }: GroceryListGeneratorProps) => {
           className="w-full"
         />
         
-        <div className="max-h-96 overflow-y-auto space-y-2">
-          {filteredItems.map((item) => {
-            const key = `${item.category}|${item.names[language]}`;
-            
-            return (
-              <FoodItemSelector
-                key={key}
-                item={item}
-                itemKey={key}
-                language={language}
-                isSelected={selectedItems.has(key)}
-                unit={units[key] || ''}
-                placeholder={translations[language].placeholder}
-                onToggle={toggleItem}
-                onUnitChange={handleUnitChange}
-              />
-            );
-          })}
+        <div className="max-h-96 overflow-y-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+            {filteredItems.map((item) => {
+              const key = `${item.category}|${item.names[language]}`;
+              
+              return (
+                <FoodItemSelector
+                  key={key}
+                  item={item}
+                  itemKey={key}
+                  language={language}
+                  isSelected={selectedItems.has(key)}
+                  unit={units[key] || ''}
+                  placeholder={translations[language].placeholder}
+                  onToggle={toggleItem}
+                  onUnitChange={handleUnitChange}
+                />
+              );
+            })}
+          </div>
         </div>
         
         {selectedItems.size > 0 && (
