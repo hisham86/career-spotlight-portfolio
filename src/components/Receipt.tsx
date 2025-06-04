@@ -192,10 +192,10 @@ TOTAL ITEMS: ${items.length}
         {/* Copy Button */}
         <div className="flex justify-center pt-2">
           <Button 
-            variant="outline" 
+            variant="default" 
             size="sm" 
             onClick={copyReceiptToClipboard}
-            className="flex items-center gap-2 text-xs"
+            className="flex items-center gap-2 text-xs bg-blue-600 hover:bg-blue-700 text-white border-none shadow-md"
           >
             <Copy size={12} />
             COPY
