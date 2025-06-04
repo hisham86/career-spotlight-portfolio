@@ -45,6 +45,7 @@ const Header = () => {
   ];
 
   const toolsLinks = [
+    { name: 'Grocery List', href: '/tools/grocery-list' },
     { name: 'Download Samples', href: '#', action: handleOpenWorkSamples },
     { name: 'My CV', href: '#', action: handleDownloadCV },
     { name: 'Buy Me a Coffee', href: 'https://buymeacoffee.com/hishamcato' },
