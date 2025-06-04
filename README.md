@@ -18,6 +18,12 @@ This portfolio showcases Hisham's skills, experience, and projects in product ma
   - Skills showcase
   - Project portfolio
   - Contact information
+- **Grocery List Tool**: Interactive grocery list generator with receipt-style visualization
+  - Multi-language support (English, Bahasa Malaysia, Chinese, Korean, Japanese, Arabic, Italian, Spanish, Russian)
+  - Extensive food database with emojis and categories
+  - Unit specification for each item
+  - Receipt-style display with perforated edges
+  - Search functionality across all food items
 
 ## Tech Stack
 
@@ -30,6 +36,7 @@ This project is built with:
 - **shadcn/ui** - Accessible and customizable component library
 - **Recharts** - Composable charting library for data visualization
 - **Lucide React** - Beautiful, consistent icon set
+- **React Router** - Declarative routing for React
 
 ## Development
 
@@ -48,6 +55,16 @@ npm install
 # Start the development server
 npm run dev
 ```
+
+## Tools
+
+### Grocery List Generator
+Access the grocery list tool at `/tools/grocery-list`. Features include:
+- Multi-language food database with 9 supported languages
+- Categorized food items (Fruits, Vegetables, Protein & Meat, Dairy & Cheese, Grains & Bread, Beverages, Prepared Foods, Sweets & Desserts)
+- Unit specification for quantities
+- Receipt-style visual display
+- Search functionality
 
 ## Connect with Hisham
 
