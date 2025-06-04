@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 interface ToolsDropdownProps {
@@ -19,7 +18,7 @@ const ToolsDropdown = ({ isScrolled }: ToolsDropdownProps) => {
   };
 
   const toolsLinks = [
-    { name: 'Grocery List', href: '/tools/grocery-list' },
+    { name: 'Grocery List', href: 'https://h16d.com/grocery' },
     { name: 'Download Samples', href: '#', action: handleOpenWorkSamples },
     { name: 'My CV', href: '#', action: handleDownloadCV },
     { name: 'Buy Me a Coffee', href: 'https://buymeacoffee.com/hishamcato' },
