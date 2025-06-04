@@ -89,6 +89,25 @@ const Receipt = ({ items }: ReceiptProps) => {
     return '🛒';
   };
 
+  const parseItemName = (name: string) => {
+    // Extract number and unit from the beginning of the name
+    const match = name.match(/^(\d+(?:\.\d+)?)\s*([a-zA-Z]*)\s+(.+)$/);
+    if (match) {
+      const [, number, unit, itemName] = match;
+      const unitText = unit ? ` ${unit}` : '';
+      return {
+        itemName: itemName,
+        quantity: `${number}${unitText}`
+      };
+    }
+    
+    // If no number pattern found, return as is
+    return {
+      itemName: name,
+      quantity: ''
+    };
+  };
+
   const copyReceiptToClipboard = async () => {
     if (items.length === 0) {
       toast({
@@ -103,12 +122,10 @@ const Receipt = ({ items }: ReceiptProps) => {
 ${currentDate} ${dayName} ${currentTime}
 
 ${items.map((item, index) => {
-  const nameParts = item.name.split(' ');
-  const hasUnit = nameParts.length > 1 && /^\d/.test(nameParts[0]);
-  const unit = hasUnit ? nameParts[0] : '';
-  const itemName = hasUnit ? nameParts.slice(1).join(' ') : item.name;
+  const { itemName, quantity } = parseItemName(item.name);
+  const displayText = quantity ? `${itemName} (${quantity})` : itemName;
   
-  return `${String(index + 1).padStart(2, '0')}. ${getItemEmoji(item)} ${itemName}${unit ? ` (${unit})` : ''} ${item.completed ? '✓' : '○'}`;
+  return `${String(index + 1).padStart(2, '0')}. ${getItemEmoji(item)} ${displayText} ${item.completed ? '✓' : '○'}`;
 }).join('\n')}
 
 *********************
@@ -221,16 +238,13 @@ TOTAL ITEMS: ${items.length}
         {/* Items List */}
         <div className="space-y-1">
           {items.map((item, index) => {
-            // Extract unit from item name if it exists
-            const nameParts = item.name.split(' ');
-            const hasUnit = nameParts.length > 1 && /^\d/.test(nameParts[0]);
-            const unit = hasUnit ? nameParts[0] : '';
-            const itemName = hasUnit ? nameParts.slice(1).join(' ') : item.name;
+            const { itemName, quantity } = parseItemName(item.name);
+            const displayText = quantity ? `${itemName} (${quantity})` : itemName;
             
             return (
               <div key={item.id} className="text-xs flex justify-between items-center">
                 <span className={`flex-1 ${item.completed ? 'line-through text-gray-500' : ''}`}>
-                  {String(index + 1).padStart(2, '0')}. {getItemEmoji(item)} {itemName}{unit ? ` (${unit})` : ''}
+                  {String(index + 1).padStart(2, '0')}. {getItemEmoji(item)} {displayText}
                 </span>
                 <span className="ml-2">
                   {item.completed ? '✓' : '○'}
