@@ -12,7 +12,7 @@ const HeroContent = () => {
   };
 
   const handleDownloadCV = () => {
-    window.open('https://drive.google.com/file/d/17FLfdEeSbjm6C6WwRI3zLcMKLQqRJjO9/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1sF0BuO5drMMTRuc_YckTnkm-BpmFAPiC/view?usp=sharing', '_blank');
   };
 
   return (
