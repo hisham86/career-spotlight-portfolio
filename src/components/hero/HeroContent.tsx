@@ -1,3 +1,4 @@
+
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { Download, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,7 +13,7 @@ const HeroContent = () => {
   };
 
   const handleDownloadCV = () => {
-    window.open('https://drive.google.com/file/d/1sF0BuO5drMMTRuc_YckTnkm-BpmFAPiC/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1ZF2V2wahs4WA_Ph_58jd68hQ1flYEm7D/view?usp=sharing', '_blank');
   };
 
   return (
