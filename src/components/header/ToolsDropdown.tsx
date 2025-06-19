@@ -18,10 +18,10 @@ const ToolsDropdown = ({ isScrolled }: ToolsDropdownProps) => {
   };
 
   const toolsLinks = [
+    { name: 'My CV', href: '#', action: handleDownloadCV },
     { name: 'Grocery List', href: 'https://h16d.com/grocery' },
     { name: 'Pizza', href: 'https://pizza.h16d.com' },
     { name: 'Download Samples', href: '#', action: handleOpenWorkSamples },
-    { name: 'My CV', href: '#', action: handleDownloadCV },
     { name: 'Buy Me a Coffee', href: 'https://buymeacoffee.com/hishamcato' },
   ];
 
