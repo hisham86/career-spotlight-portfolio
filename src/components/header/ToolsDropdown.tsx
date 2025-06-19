@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 interface ToolsDropdownProps {
@@ -13,7 +14,7 @@ const ToolsDropdown = ({ isScrolled }: ToolsDropdownProps) => {
   };
   
   const handleDownloadCV = () => {
-    window.open('https://drive.google.com/file/d/1ZF2V2wahs4WA_Ph_58jd68hQ1flYEm7D/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1pDQEXsP6C6R-S-jKjGdAHmh1EVFWR197/view?usp=sharing', '_blank');
     setIsOpen(false);
   };
 
